@@ -12,18 +12,39 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="Now Playing:"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="41dp"
         android:textSize="40sp"
-        android:id="@+id/appTitle"/>
+        android:id="@+id/mainHeader"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button"
+        android:text="Movie Roulette!"
+        android:id="@+id/go2Random"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_gravity="center|left"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Or..."
+        android:id="@+id/textView"
+        android:layout_above="@+id/go2Random"
+        android:layout_centerHorizontal="true"
+        android:textSize="15sp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Theaters Nearby"
+        android:id="@+id/go2Theaters"
+        android:layout_above="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>
