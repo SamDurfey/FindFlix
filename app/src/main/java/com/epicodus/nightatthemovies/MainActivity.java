@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import butterknife.Bind;
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.mainHeader) TextView mMainHeader;
     @Bind(R.id.go2Random) Button mGoToRandomButton;
     @Bind(R.id.go2Theaters) Button mGoToTheatersButton;
+    @Bind(R.id.locationEntryView) EditText mLocationEntryView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +40,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
         if (view == mGoToTheatersButton) {
+            String inputtedLocation = mLocationEntryView.getText().toString();
             Intent intent = new Intent(MainActivity.this, TheatersActivity.class);
+            intent.putExtra("inputtedLocation", inputtedLocation);
             startActivity(intent);
         }
     }

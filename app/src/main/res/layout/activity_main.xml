@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.epicodus.nightatthemovies.MainActivity">
+    tools:context="com.epicodus.nightatthemovies.MainActivity"
+    android:background="#333333">
 
     <TextView
         android:layout_width="wrap_content"
@@ -17,12 +18,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="41dp"
         android:textSize="40sp"
-        android:id="@+id/mainHeader"/>
+        android:id="@+id/mainHeader"
+        android:textColor="#FFFFFF" />
+
+
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Movie Roulette!"
+        android:text="Play Movie Roulette!"
         android:id="@+id/go2Random"
         android:layout_alignWithParentIfMissing="false"
         android:layout_gravity="center|left"
@@ -36,15 +40,29 @@
         android:id="@+id/textView"
         android:layout_above="@+id/go2Random"
         android:layout_centerHorizontal="true"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Theaters Nearby"
+        android:text="Search Theaters Nearby"
         android:id="@+id/go2Theaters"
         android:layout_above="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/locationEntryView"
+        android:layout_above="@+id/go2Theaters"
+        android:layout_centerHorizontal="true"
+        android:background="#FFFFFF"
+        android:hint="Enter a Location"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp" />
 
 </RelativeLayout>
