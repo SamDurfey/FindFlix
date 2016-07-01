@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.epicodus.nightatthemovies.MainActivity"
-    android:background="#333333">
+    android:background="@color/material_grey_600">
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,7 +31,8 @@
         android:layout_alignWithParentIfMissing="false"
         android:layout_gravity="center|left"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -50,7 +51,8 @@
         android:id="@+id/go2Theaters"
         android:layout_above="@+id/textView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@color/colorPrimary" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -58,11 +60,15 @@
         android:id="@+id/locationEntryView"
         android:layout_above="@+id/go2Theaters"
         android:layout_centerHorizontal="true"
-        android:background="#FFFFFF"
+        android:background="@color/colorTextIcons"
         android:hint="Enter a Location"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
         android:paddingRight="10dp"
-        android:paddingBottom="5dp" />
+        android:paddingBottom="5dp"
+        android:layout_marginBottom="5dp"
+        android:allowUndo="true"
+        android:textColorHint="@color/colorPrimaryText"
+        android:textColor="@color/colorPrimaryText" />
 
 </RelativeLayout>

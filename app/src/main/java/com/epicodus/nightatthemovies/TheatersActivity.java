@@ -15,9 +15,12 @@ import butterknife.ButterKnife;
 public class TheatersActivity extends AppCompatActivity {
     @Bind(R.id.theatersHeader) TextView mTheatersHeader;
     @Bind(R.id.listView) ListView mTheaterListView;
-    String[] theaterList = new String[] {"Living Room Theaters", "Regal Pioneer Place Stadium 6", "Regal Fox Tower Stadium 10",
-            "Mission Theater and Pub", "Cinema 21", "Regal Lloyd Center 10 & IMAX", "Laurelhurst Theatre & Pub",
-            "Bagdad Theatre", "Kennedy School Theatre"};
+    String[] theaterList = new String[] {
+            "Living Room Theaters", "Regal Pioneer Place Stadium 6", "Regal Fox Tower Stadium 10",
+            "Mission Theater and Pub", "Cinema 21", "Regal Lloyd Center 10 & IMAX",
+            "Laurelhurst Theatre & Pub", "Bagdad Theatre", "Kennedy School Theatre"
+
+    };
 
 
     @Override
