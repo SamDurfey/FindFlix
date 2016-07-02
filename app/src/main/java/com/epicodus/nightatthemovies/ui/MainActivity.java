@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.epicodus.nightatthemovies.R;
 
@@ -43,9 +44,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if (view == mGoToTheatersButton) {
             String inputtedLocation = mLocationEntryView.getText().toString();
-            Intent intent = new Intent(MainActivity.this, TheaterListActivity.class);
-            intent.putExtra("inputtedLocation", inputtedLocation);
-            startActivity(intent);
+            if (inputtedLocation.length() == 0) {
+                Toast.makeText(MainActivity.this, "Please enter a location to search for nearby theaters.", Toast.LENGTH_LONG).show();
+            } else {
+                Intent intent = new Intent(MainActivity.this, TheaterListActivity.class);
+                intent.putExtra("inputtedLocation", inputtedLocation);
+                startActivity(intent);
+            }
         }
     }
 }
