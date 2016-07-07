@@ -48,8 +48,10 @@ public class TheatersActivity extends AppCompatActivity {
                 try {
                     String jsonData = response.body().string();
                     if (response.isSuccessful()) {
-                        Log.v(TAG, jsonData);
                         mTheaters = googleService.processResults(response);
+//                        for (Theater theater : mTheaters) {
+//                            Log.d(TAG, theater.getName().toString());
+//                        }
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

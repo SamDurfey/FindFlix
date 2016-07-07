@@ -1,5 +1,7 @@
 package com.epicodus.nightatthemovies.services;
 
+import android.util.Log;
+
 import com.epicodus.nightatthemovies.Constants;
 import com.epicodus.nightatthemovies.models.Theater;
 
@@ -50,8 +52,10 @@ public class GoogleService {
                 }
             }
         } catch (IOException e) {
+            Log.d("hello", "I am the error");
             e.printStackTrace();
         } catch (JSONException e) {
+            Log.d("Ignore him", "I'm the perpetrator");
             e.printStackTrace();
         }
         return theaters;
