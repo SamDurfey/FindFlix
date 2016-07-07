@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.epicodus.nightatthemovies">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,17 +21,17 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".RouletteActivity">
+        <activity android:name=".ui.RouletteActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.nightatthemovies.MainActivity">
+                android:value=".ui.MainActivity">
             </meta-data>
         </activity>
 
-        <activity android:name=".TheatersActivity">
+        <activity android:name=".ui.TheatersActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.nightatthemovies.MainActivity">
+                android:value=".ui.MainActivity">
             </meta-data>
         </activity>
 
