@@ -33,12 +33,11 @@ public class GoogleService {
         Call call = client.newCall(request);
         call.enqueue(callback);
     }
-    public ArrayList<Theater> processResults(Response response) {
+    public ArrayList<Theater> processResults(String jsonData) {
         ArrayList<Theater> theaters = new ArrayList<>();
 
         try {
-            String jsonData = response.body().string();
-            if (response.isSuccessful()) {
+            //if (response.isSuccessful()) {
                 JSONObject googleJSON = new JSONObject(jsonData);
                 JSONArray theatersListJSON = googleJSON.getJSONArray("results");
                 for (int i = 0; i < theatersListJSON.length(); i++) {
@@ -49,12 +48,14 @@ public class GoogleService {
 
                     Theater theater = new Theater(name, reference, placeId);
                     theaters.add(theater);
-                }
+                //}
             }
-        } catch (IOException e) {
-            Log.d("hello", "I am the error");
-            e.printStackTrace();
-        } catch (JSONException e) {
+        }
+//        catch (IOException e) {
+//            Log.d("hello", "I am the error");
+//            e.printStackTrace();
+//        }
+        catch (JSONException e) {
             Log.d("Ignore him", "I'm the perpetrator");
             e.printStackTrace();
         }

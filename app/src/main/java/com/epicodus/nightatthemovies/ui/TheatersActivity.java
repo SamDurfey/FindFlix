@@ -35,33 +35,6 @@ public class TheatersActivity extends AppCompatActivity {
 
     public ArrayList<Theater> mTheaters = new ArrayList<>();
 
-    private void getTheaters() {
-        final GoogleService googleService = new GoogleService();
-        googleService.findTheaters(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    String jsonData = response.body().string();
-                    if (response.isSuccessful()) {
-                        mTheaters = googleService.processResults(response);
-//                        for (Theater theater : mTheaters) {
-//                            Log.d(TAG, theater.getName().toString());
-//                        }
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
-    }
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,4 +53,31 @@ public class TheatersActivity extends AppCompatActivity {
 
         getTheaters();
     }
+
+    private void getTheaters() {
+        final GoogleService googleService = new GoogleService();
+        googleService.findTheaters(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
+                    String jsonData = response.body().string();
+                    if (response.isSuccessful()) {
+                        mTheaters = googleService.processResults(jsonData);
+                        for (Theater theater : mTheaters) {
+                            Log.d(TAG, theater.getName().toString());
+                        }
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+    }
+
 }
