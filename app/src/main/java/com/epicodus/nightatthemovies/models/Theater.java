@@ -1,28 +1,26 @@
 package com.epicodus.nightatthemovies.models;
 
+import com.epicodus.nightatthemovies.Constants;
+
 public class Theater {
     private String mName;
-    private String mReference;
     private String mPlaceId;
     private double mLatitude;
     private double mLongitude;
     private String mLatLng;
+    private String mImageUrl;
 
-    public Theater(String name, String reference, String placeId, double latitude, double longitude) {
+    public Theater(String name, String placeId, double latitude, double longitude, String imageUrl) {
         mName = name;
-        mReference = reference;
         mPlaceId = placeId;
         mLatitude = latitude;
         mLongitude = longitude;
         mLatLng = Double.toString(latitude) + "," + Double.toString(longitude);
+        mImageUrl = imageUrl;
     }
 
     public String getName() {
         return mName;
-    }
-
-    public String getReference() {
-        return mReference;
     }
 
     public String getPlaceId() {
@@ -39,5 +37,9 @@ public class Theater {
 
     public String getLatLng() {
         return mLatLng;
+    }
+
+    public String getImageUrl() {
+        return mImageUrl;
     }
 }

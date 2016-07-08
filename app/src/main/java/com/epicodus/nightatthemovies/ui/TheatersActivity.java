@@ -66,6 +66,7 @@ public class TheatersActivity extends AppCompatActivity {
                         for (Theater theater : mTheaters) {
                             Log.d(TAG, theater.getName().toString());
                             Log.d(TAG, "Location: " + theater.getLatLng());
+                            Log.d(TAG, theater.getImageUrl());
                         }
                     }
                 } catch (IOException e) {

@@ -40,12 +40,13 @@ public class GoogleService {
             for (int i = 0; i < theatersListJSON.length(); i++) {
                 JSONObject theaterJSON = theatersListJSON.getJSONObject(i);
                 String name = theaterJSON.getString("name");
-                String reference = theaterJSON.getString("reference");
                 String placeId = theaterJSON.getString("place_id");
                 double latitude = theaterJSON.getJSONObject("geometry").getJSONObject("location").getDouble("lat");
                 double longitude = theaterJSON.getJSONObject("geometry").getJSONObject("location").getDouble("lng");
+                String photoReference = theaterJSON.getJSONArray("photos").getJSONObject(0).getString("photo_reference");
+                String imageUrl = Constants.GOOGLE_PLACES_BASE_PHOTO_URL + photoReference + "&key=" + Constants.GOOGLE_PLACES_API_KEY;
 
-                Theater theater = new Theater(name, reference, placeId, latitude, longitude);
+                Theater theater = new Theater(name, placeId, latitude, longitude, imageUrl);
                 theaters.add(theater);
             }
         }
