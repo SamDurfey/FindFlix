@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if (view == mGoToTheatersButton) {
             String inputtedLocation = mLocationEntryView.getText().toString();
-            Intent intent = new Intent(MainActivity.this, TheatersActivity.class);
+            Intent intent = new Intent(MainActivity.this, TheaterListActivity.class);
             intent.putExtra("inputtedLocation", inputtedLocation);
             startActivity(intent);
         }

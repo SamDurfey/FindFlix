@@ -1,6 +1,7 @@
 package com.epicodus.nightatthemovies.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,10 @@ import android.widget.TextView;
 
 import com.epicodus.nightatthemovies.R;
 import com.epicodus.nightatthemovies.models.Theater;
+import com.epicodus.nightatthemovies.ui.TheaterDetailActivity;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -43,7 +47,7 @@ public class TheaterListAdapter extends RecyclerView.Adapter<TheaterListAdapter.
         return mTheaters.size();
     }
 
-    public class TheaterViewHolder extends RecyclerView.ViewHolder{
+    public class TheaterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.theaterNameTextView) TextView mNameTextView;
         @Bind(R.id.theaterImageView) ImageView mTheaterImageView;
 
@@ -53,6 +57,16 @@ public class TheaterListAdapter extends RecyclerView.Adapter<TheaterListAdapter.
             super(view);
             ButterKnife.bind(this, view);
             mContext = itemView.getContext();
+            view.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, TheaterDetailActivity.class);
+            intent.putExtra("position", Integer.toString(itemPosition));
+            intent.putExtra("theaters", Parcels.wrap(mTheaters));
+            mContext.startActivity(intent);
         }
 
         public void bindTheater(Theater theater) {

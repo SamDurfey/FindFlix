@@ -1,7 +1,9 @@
 package com.epicodus.nightatthemovies.models;
 
-import com.epicodus.nightatthemovies.Constants;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Theater {
     private String mName;
     private String mPlaceId;
@@ -9,6 +11,8 @@ public class Theater {
     private double mLongitude;
     private String mLatLng;
     private String mImageUrl;
+
+    public Theater() {}
 
     public Theater(String name, String placeId, double latitude, double longitude, String imageUrl) {
         mName = name;

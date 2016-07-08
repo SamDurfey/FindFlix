@@ -7,7 +7,7 @@
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/activity_vertical_margin"
-                tools:context=".ui.TheatersActivity"
+                tools:context=".ui.TheaterListActivity"
                 android:background="@color/material_grey_600"
                 android:id="@+id/ecyclier">
 

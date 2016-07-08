@@ -24,8 +24,8 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 
-public class TheatersActivity extends AppCompatActivity {
-    public static final String TAG = TheatersActivity.class.getSimpleName();
+public class TheaterListActivity extends AppCompatActivity {
+    public static final String TAG = TheaterListActivity.class.getSimpleName();
     @Bind(R.id.theatersHeader) TextView mTheatersHeader;
     @Bind(R.id.recyclerView) RecyclerView mTheaterListView;
     private TheaterListAdapter mAdapter;
@@ -73,12 +73,12 @@ public class TheatersActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                TheatersActivity.this.runOnUiThread(new Runnable() {
+                TheaterListActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         mAdapter = new TheaterListAdapter(getApplicationContext(), mTheaters);
                         mTheaterListView.setAdapter(mAdapter);
-                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TheatersActivity.this);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TheaterListActivity.this);
                         mTheaterListView.setLayoutManager(layoutManager);
                         mTheaterListView.setHasFixedSize(true);
                     }

@@ -7,5 +7,4 @@ public class Constants {
     public static final String GOOGLE_PLACES_LOCATION_QUERY_PARAMETER = "location";
     public static final String GOOGLE_PLACES_BASE_PHOTO_URL = "https://maps.googleapis.com/maps/api/place/photo?maxheight=100&photoreference=";
 
-
 }
