@@ -4,12 +4,13 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.epicodus.nightatthemovies.R;
+import com.epicodus.nightatthemovies.adapters.TheaterListAdapter;
 import com.epicodus.nightatthemovies.models.Theater;
 import com.epicodus.nightatthemovies.services.GoogleService;
 
@@ -26,12 +27,8 @@ import okhttp3.Response;
 public class TheatersActivity extends AppCompatActivity {
     public static final String TAG = TheatersActivity.class.getSimpleName();
     @Bind(R.id.theatersHeader) TextView mTheatersHeader;
-    @Bind(R.id.listView) ListView mTheaterListView;
-    String[] theaterList = new String[] {
-            "Living Room Theaters", "Regal Pioneer Place Stadium 6", "Regal Fox Tower Stadium 10",
-            "Mission Theater and Pub", "Cinema 21", "Regal Lloyd Center 10 & IMAX",
-            "Laurelhurst Theatre & Pub", "Bagdad Theatre", "Kennedy School Theatre"
-    };
+    @Bind(R.id.recyclerView) RecyclerView mTheaterListView;
+    private TheaterListAdapter mAdapter;
 
     public ArrayList<Theater> mTheaters = new ArrayList<>();
 
@@ -42,8 +39,6 @@ public class TheatersActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, theaterList);
-        mTheaterListView.setAdapter(adapter);
 
         Typeface limelightFont = Typeface.createFromAsset(getAssets(), "fonts/Limelight.ttf");
         mTheatersHeader.setTypeface(limelightFont);
@@ -76,6 +71,17 @@ public class TheatersActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
+                TheatersActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mAdapter = new TheaterListAdapter(getApplicationContext(), mTheaters);
+                        mTheaterListView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TheatersActivity.this);
+                        mTheaterListView.setLayoutManager(layoutManager);
+                        mTheaterListView.setHasFixedSize(true);
+                    }
+                });
             }
         });
 
