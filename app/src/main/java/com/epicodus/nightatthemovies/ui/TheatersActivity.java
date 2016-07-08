@@ -70,6 +70,7 @@ public class TheatersActivity extends AppCompatActivity {
                         mTheaters = googleService.processResults(jsonData);
                         for (Theater theater : mTheaters) {
                             Log.d(TAG, theater.getName().toString());
+                            Log.d(TAG, "Location: " + theater.getLatLng());
                         }
                     }
                 } catch (IOException e) {

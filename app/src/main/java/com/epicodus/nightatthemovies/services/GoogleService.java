@@ -9,7 +9,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import okhttp3.Call;
@@ -17,7 +16,6 @@ import okhttp3.Callback;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.Response;
 
 public class GoogleService {
 
@@ -37,18 +35,18 @@ public class GoogleService {
         ArrayList<Theater> theaters = new ArrayList<>();
 
         try {
-            //if (response.isSuccessful()) {
-                JSONObject googleJSON = new JSONObject(jsonData);
-                JSONArray theatersListJSON = googleJSON.getJSONArray("results");
-                for (int i = 0; i < theatersListJSON.length(); i++) {
-                    JSONObject theaterJSON = theatersListJSON.getJSONObject(i);
-                    String name = theaterJSON.getString("name");
-                    String reference = theaterJSON.getString("reference");
-                    String placeId = theaterJSON.getString("place_id");
+            JSONObject googleJSON = new JSONObject(jsonData);
+            JSONArray theatersListJSON = googleJSON.getJSONArray("results");
+            for (int i = 0; i < theatersListJSON.length(); i++) {
+                JSONObject theaterJSON = theatersListJSON.getJSONObject(i);
+                String name = theaterJSON.getString("name");
+                String reference = theaterJSON.getString("reference");
+                String placeId = theaterJSON.getString("place_id");
+                double latitude = theaterJSON.getJSONObject("geometry").getJSONObject("location").getDouble("lat");
+                double longitude = theaterJSON.getJSONObject("geometry").getJSONObject("location").getDouble("lng");
 
-                    Theater theater = new Theater(name, reference, placeId);
-                    theaters.add(theater);
-                //}
+                Theater theater = new Theater(name, reference, placeId, latitude, longitude);
+                theaters.add(theater);
             }
         }
 //        catch (IOException e) {
