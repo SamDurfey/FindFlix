@@ -21,7 +21,10 @@ public class GoogleService {
 
     public static void findTheaters(/*String location,*/ Callback callback) {
         OkHttpClient client = new OkHttpClient();
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.GOOGLE_PLACES_TEST_URL).newBuilder();
+
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.GOOGLE_PLACES_BASE_URL).newBuilder();
+        urlBuilder.addQueryParameter(Constants.GOOGLE_PLACES_LOCATION_QUERY_PARAMETER, Constants.GOOGLE_PLACES_TEST_LOCATION);
+        urlBuilder.addQueryParameter("key", Constants.GOOGLE_PLACES_API_KEY);
         String url = urlBuilder.build().toString();
 
         Request request = new Request.Builder()
