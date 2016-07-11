@@ -19,11 +19,11 @@ import okhttp3.Request;
 
 public class GoogleService {
 
-    public static void findTheaters(/*String location,*/ Callback callback) {
+    public static void findTheaters(String location, Callback callback) {
         OkHttpClient client = new OkHttpClient();
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.GOOGLE_PLACES_BASE_URL).newBuilder();
-        urlBuilder.addQueryParameter(Constants.GOOGLE_PLACES_LOCATION_QUERY_PARAMETER, Constants.GOOGLE_PLACES_TEST_LOCATION);
+        urlBuilder.addQueryParameter(Constants.GOOGLE_PLACES_LOCATION_QUERY_PARAMETER, location);
         urlBuilder.addQueryParameter("key", Constants.GOOGLE_PLACES_API_KEY);
         String url = urlBuilder.build().toString();
 
@@ -31,6 +31,7 @@ public class GoogleService {
                 .url(url)
                 .build();
 
+        Log.d("Call url: ", request.toString());
         Call call = client.newCall(request);
         call.enqueue(callback);
     }

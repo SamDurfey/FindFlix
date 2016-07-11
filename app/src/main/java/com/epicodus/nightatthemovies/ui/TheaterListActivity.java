@@ -46,12 +46,12 @@ public class TheaterListActivity extends AppCompatActivity {
         String inputtedLocation = intent.getStringExtra("inputtedLocation");
         mTheatersHeader.setText("These are the theaters near " + inputtedLocation + ":");
 
-        getTheaters();
+        getTheaters(inputtedLocation);
     }
 
-    private void getTheaters() {
+    private void getTheaters(String location) {
         final GoogleService googleService = new GoogleService();
-        googleService.findTheaters(new Callback() {
+        googleService.findTheaters(location, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
