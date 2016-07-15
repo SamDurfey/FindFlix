@@ -9,6 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import okhttp3.Call;
@@ -16,8 +17,22 @@ import okhttp3.Callback;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.Response;
 
 public class GoogleService {
+
+    public static void getLocation(String address, Callback geoCallback) {
+        OkHttpClient client = new OkHttpClient();
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.GOOGLE_GEOCODE_URL).newBuilder();
+        urlBuilder.addQueryParameter(Constants.GOOGLE_GEOCODE_ADDRESS_QUERY_PARAMERTER, address);
+        urlBuilder.addQueryParameter("key", Constants.GOOGLE_PLACES_API_KEY);
+        String url = urlBuilder.build().toString();
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+        Call call = client.newCall(request);
+        call.enqueue(geoCallback);
+    }
 
     public static void findTheaters(String location, Callback callback) {
         OkHttpClient client = new OkHttpClient();
