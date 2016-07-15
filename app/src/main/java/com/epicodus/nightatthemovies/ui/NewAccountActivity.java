@@ -11,12 +11,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.epicodus.nightatthemovies.Constants;
 import com.epicodus.nightatthemovies.R;
+import com.epicodus.nightatthemovies.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -25,6 +29,7 @@ public class NewAccountActivity extends AppCompatActivity implements View.OnClic
     private static final String TAG =  NewAccountActivity.class.getSimpleName() ;
     SharedPreferences mSharedPreferences;
     SharedPreferences.Editor mEditor;
+    DatabaseReference ref;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
@@ -37,6 +42,8 @@ public class NewAccountActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ref = FirebaseDatabase.getInstance().getReference().child(Constants.FIREBASE_CHILD_USER);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_account);
         ButterKnife.bind(this);
@@ -71,13 +78,16 @@ public class NewAccountActivity extends AppCompatActivity implements View.OnClic
     private void createNewUser() {
         final String name = mUserNameEntry.getText().toString().trim();
         final String email = mEmailEntry.getText().toString().trim();
-        String password = mPasswordEntry.getText().toString().trim();
+        final String password = mPasswordEntry.getText().toString().trim();
         String confirmPassword = mConfirmPasswordEntry.getText().toString().trim();
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            String uid = task.getResult().getUser().getUid();
+                            User newUser = new User(name, email, password, uid);
+                            ref.child(uid).setValue(newUser);
                             Log.d(TAG, "Authentication successful.");
                         } else {
                             Toast.makeText(NewAccountActivity.this, "Authentication failed.",
