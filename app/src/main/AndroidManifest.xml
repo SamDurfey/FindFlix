@@ -32,6 +32,8 @@
         </activity>
         <activity android:name=".ui.TheaterDetailActivity">
         </activity>
+        <activity android:name=".ui.NewAccountActivity">
+        </activity>
     </application>
 
 </manifest>
