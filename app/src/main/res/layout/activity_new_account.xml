@@ -41,8 +41,8 @@
         android:hint="Email"
         android:gravity="center_horizontal"
         android:layout_below="@+id/usernameEditText"
-        android:layout_alignLeft="@+id/confirmEditText"
-        android:layout_alignStart="@+id/confirmEditText"/>
+        android:layout_alignLeft="@+id/confirmPasswordEditText"
+        android:layout_alignStart="@+id/confirmPasswordEditText"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/confirmEditText"
+        android:id="@+id/confirmPasswordEditText"
         android:gravity="center_horizontal"
         android:hint="Confirm Password"
         android:layout_below="@+id/passwordEditText"
@@ -71,10 +71,10 @@
         android:layout_height="wrap_content"
         android:text="Sign Up"
         android:id="@+id/signUpButton"
-        android:layout_below="@+id/confirmEditText"
-        android:layout_alignRight="@+id/confirmEditText"
-        android:layout_alignEnd="@+id/confirmEditText"
-        android:layout_alignLeft="@+id/confirmEditText"
-        android:layout_alignStart="@+id/confirmEditText"
+        android:layout_below="@+id/confirmPasswordEditText"
+        android:layout_alignRight="@+id/confirmPasswordEditText"
+        android:layout_alignEnd="@+id/confirmPasswordEditText"
+        android:layout_alignLeft="@+id/confirmPasswordEditText"
+        android:layout_alignStart="@+id/confirmPasswordEditText"
         android:layout_marginTop="30dp"/>
 </RelativeLayout>
