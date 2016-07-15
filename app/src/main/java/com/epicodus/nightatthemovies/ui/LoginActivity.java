@@ -6,12 +6,17 @@ import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.epicodus.nightatthemovies.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -19,6 +24,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final String TAG = LoginActivity.class.getSimpleName();
     SharedPreferences mSharedPreferences;
     SharedPreferences.Editor mEditor;
 
@@ -34,7 +40,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        
         ButterKnife.bind(this);
+        mLoginButton.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -84,9 +92,40 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View view) {
+        if (view == mLoginButton) {
+            loginWithPassword();
+        }
         if (view == mNewAccountLink) {
             Intent intent = new Intent(LoginActivity.this, NewAccountActivity.class);
             startActivity(intent);
         }
+    }
+
+    private void loginWithPassword() {
+        String email = mEmailEntry.getText().toString().trim();
+        String password = mPasswordEntry.getText().toString().trim();
+        if (email.equals("")) {
+            mEmailEntry.setError("Please enter your email address");
+            return;
+        }
+        if (password.equals("")) {
+            mPasswordEntry.setError("Please enter your password");
+            return;
+        }
+        mAuthProgressDialog.show();
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        mAuthProgressDialog.dismiss();
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "Authentication successful");
+
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Authentication failure", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 }
