@@ -9,4 +9,7 @@ public class Constants {
     public static final String GOOGLE_PLACES_BASE_PHOTO_URL = "https://maps.googleapis.com/maps/api/place/photo?maxheight=100&photoreference=";
     public static final String GOOGLE_PLACES_PHOTO_REFERENCE_QUERY_PARAMETER = "photo_reference";
 
+    public static final String PREFERENCES_USER_KEY = "user";
+    public static final String PREFERENCES_LOCATION_KEY = "location";
+
 }
