@@ -8,17 +8,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:329904567096:android:4c3c01dcc3792942",
+        "mobilesdk_app_id": "1:329904567096:android:1677d5d1f4d89bda",
         "android_client_info": {
-          "package_name": "com.epicodus.nigthatthemovies"
+          "package_name": "com.epicodus.nightatthemovies"
         }
       },
       "oauth_client": [
         {
-          "client_id": "329904567096-1nanksg8kbantmcg0t609ve4s6q4p6sa.apps.googleusercontent.com",
+          "client_id": "329904567096-0fv732c4mo6n1q9vrfkqsd94gaujrks2.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.epicodus.nigthatthemovies",
+            "package_name": "com.epicodus.nightatthemovies",
             "certificate_hash": "C31E0D6657B438B663ED1AF934BEB3554038E60F"
           }
         },
