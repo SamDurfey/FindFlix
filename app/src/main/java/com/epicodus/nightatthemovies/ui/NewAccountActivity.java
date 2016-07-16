@@ -81,6 +81,8 @@ public class NewAccountActivity extends AppCompatActivity implements View.OnClic
         final String password = mPasswordEntry.getText().toString().trim();
         String confirmPassword = mConfirmPasswordEntry.getText().toString().trim();
 
+        if (!isValidName(name) || !isValidEmail(email) || !isValidPassword(password, confirmPassword)) return;
+
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -95,6 +97,35 @@ public class NewAccountActivity extends AppCompatActivity implements View.OnClic
                         }
                     }
         });
+    }
+
+    private boolean isValidEmail(String email) {
+        boolean isGoodEmail =
+                (email != null && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches());
+        if (!isGoodEmail) {
+            mEmailEntry.setError("Please enter a valid email address");
+            return false;
+        }
+        return isGoodEmail;
+    }
+
+    private boolean isValidName(String name) {
+        if (name.equals("")) {
+            mUserNameEntry.setError("Please enter a user name");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isValidPassword(String password, String confirmPassword) {
+        if (password.length() < 6) {
+            mPasswordEntry.setError("Your password must contain at least 6 characters");
+            return false;
+        } else if (!password.equals(confirmPassword)) {
+            mPasswordEntry.setError("These passwords don't match");
+            return false;
+        }
+        return true;
     }
 
     private void createAuthStateListener() {
