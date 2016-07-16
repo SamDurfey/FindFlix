@@ -107,7 +107,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (email.equals("")) {
             mEmailEntry.setError("Please enter your email address");
             return;
-        }
+        } else if (!isValidEmail(email)) return;
+
         if (password.equals("")) {
             mPasswordEntry.setError("Please enter your password");
             return;
@@ -123,9 +124,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             Log.d(TAG, "Authentication successful");
 
                         } else {
-                            Toast.makeText(LoginActivity.this, "Authentication failure", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Could not sign in. Double-check email and password.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+    }
+
+    private boolean isValidEmail(String email) {
+        boolean isGoodEmail =
+                (email != null && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches());
+        if (!isGoodEmail) {
+            mEmailEntry.setError("Please enter a valid email address");
+            return false;
+        }
+        return isGoodEmail;
     }
 }
