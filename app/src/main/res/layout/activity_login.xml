@@ -20,7 +20,7 @@
         android:textSize="30dp"/>
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
@@ -32,7 +32,7 @@
         android:hint="Email"/>
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
@@ -40,7 +40,8 @@
         android:layout_below="@+id/emailEditText"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
-        android:hint="Password"/>
+        android:hint="Password"
+        android:layout_marginTop="12dp"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -51,7 +52,8 @@
         android:layout_alignRight="@+id/passwordEditText"
         android:layout_alignEnd="@+id/passwordEditText"
         android:layout_alignLeft="@+id/passwordEditText"
-        android:layout_alignStart="@+id/passwordEditText"/>
+        android:layout_alignStart="@+id/passwordEditText"
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:layout_width="wrap_content"
