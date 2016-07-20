@@ -1,6 +1,18 @@
 package com.epicodus.nightatthemovies;
 
 public class Constants {
+
+    public static final String NFROULETTE_BASE_URL = "http://netflixroulette.net/api/api.php?";
+    public static final String NFROULETTE_ACTOR_QUERY_PARAMETER = "actor";
+    public static final String NFROULETTE_GENRE_QUERY_PARAMETER = "genre";
+    public static final String NFROULETTE_DIRECTOR_QUERY_PARAMETER = "director";
+
+
+
+
+
+
+    // Google crap. ech.wav
     public static final String GOOGLE_PLACES_API_KEY = BuildConfig.GOOGLE_PLACES_API_KEY;
     public static final String GOOGLE_PLACES_BASE_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?type=movie_theater&radius=1000";
     public static final String GOOGLE_PLACES_LOCATION_QUERY_PARAMETER = "query";

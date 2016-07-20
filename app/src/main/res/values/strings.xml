@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Night at The Movies</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
+    <!--TODO: Implement NetflixRoulette API. Library or actual http request? -->
+    <!--TODO: Allow user to save results -->
+    <!--TODO: Allow user to do things with those results -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
