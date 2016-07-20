@@ -29,4 +29,35 @@
         android:layout_centerHorizontal="true"
         android:background="@color/colorPrimary"
         android:textColor="@color/colorPrimaryText" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/actorEditText"
+        android:layout_below="@+id/rouletteHeader"
+        android:layout_centerHorizontal="true"
+        android:hint="Actor"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/genreEditText"
+        android:hint="Genre"
+        android:layout_below="@+id/actorEditText"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/directorEditText"
+        android:hint="Director"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/genreEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+
 </RelativeLayout>

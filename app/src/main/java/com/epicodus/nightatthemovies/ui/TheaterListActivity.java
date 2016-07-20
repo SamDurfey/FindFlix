@@ -1,7 +1,9 @@
 package com.epicodus.nightatthemovies.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.epicodus.nightatthemovies.Constants;
 import com.epicodus.nightatthemovies.R;
 import com.epicodus.nightatthemovies.adapters.TheaterListAdapter;
 import com.epicodus.nightatthemovies.models.Theater;
@@ -26,6 +29,10 @@ import okhttp3.Response;
 
 public class TheaterListActivity extends AppCompatActivity {
     public static final String TAG = TheaterListActivity.class.getSimpleName();
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+    private String mRecentLocation;
+
     @Bind(R.id.theatersHeader) TextView mTheatersHeader;
     @Bind(R.id.recyclerView) RecyclerView mTheaterListView;
     private TheaterListAdapter mAdapter;
@@ -43,10 +50,12 @@ public class TheaterListActivity extends AppCompatActivity {
         Typeface limelightFont = Typeface.createFromAsset(getAssets(), "fonts/Limelight.ttf");
         mTheatersHeader.setTypeface(limelightFont);
 
-        String inputtedLocation = intent.getStringExtra("inputtedLocation");
-        mTheatersHeader.setText("These are the theaters near " + inputtedLocation + ":");
 
-        getTheaters(inputtedLocation);
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentLocation = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+        mTheatersHeader.setText("These are the theaters near " + mRecentLocation + ":");
+
+        getTheaters(mRecentLocation);
     }
 
     private void getTheaters(String location) {
