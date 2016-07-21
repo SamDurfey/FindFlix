@@ -21,7 +21,7 @@ import okhttp3.Response;
 
 public class RouletteService {
 
-    public void getFlix(String actor, String genre, String director, Callback callback) {
+    public void findShows(String actor, String genre, String director, Callback callback) {
 
         OkHttpClient mClient = new OkHttpClient();
 
@@ -51,27 +51,25 @@ public class RouletteService {
 
         try {
             String jsonData = response.body().string();
-            if (response.isSuccessful()) {
-                JSONArray nfJSON = new JSONArray(jsonData);
-                for (int i = 0; i < nfJSON.length(); i++) {
-                    JSONObject mediaJSON = nfJSON.getJSONObject(i);
+            JSONArray nfJSON = new JSONArray(jsonData);
+            for (int i = 0; i < nfJSON.length(); i++) {
+                JSONObject mediaJSON = nfJSON.getJSONObject(i);
 
-                    int unit = mediaJSON.getInt("unit");
-                    int id = mediaJSON.getInt("show_id");
-                    String showTitle = mediaJSON.getString("show_title");
-                    String releaseYear = mediaJSON.getString("release_year");
-                    String rating = mediaJSON.getString("rating");
-                    String category = mediaJSON.getString("category");
-                    String castString = mediaJSON.getString("show_cast");
-                    String director = mediaJSON.getString("director");
-                    String summary = mediaJSON.getString("summary");
-                    String posterURL = mediaJSON.getString("poster");
-                    int mediaType = mediaJSON.getInt("mediatype");
-                    String runtime = mediaJSON.getString("runtime");
+                int unit = mediaJSON.getInt("unit");
+                int id = mediaJSON.getInt("show_id");
+                String showTitle = mediaJSON.getString("show_title");
+                String releaseYear = mediaJSON.getString("release_year");
+                String rating = mediaJSON.getString("rating");
+                String category = mediaJSON.getString("category");
+                String castString = mediaJSON.getString("show_cast");
+                String director = mediaJSON.getString("director");
+                String summary = mediaJSON.getString("summary");
+                String posterURL = mediaJSON.getString("poster");
+                int mediaType = mediaJSON.getInt("mediatype");
+                String runtime = mediaJSON.getString("runtime");
 
-                    Media show = new Media(unit, id, showTitle, releaseYear, rating, category, castString, director, summary, posterURL, mediaType, runtime);
-                    shows.add(show);
-                }
+                Media show = new Media(unit, id, showTitle, releaseYear, rating, category, castString, director, summary, posterURL, mediaType, runtime);
+                shows.add(show);
             }
         } catch (IOException e) {
             e.printStackTrace();

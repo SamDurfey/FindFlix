@@ -1,15 +1,18 @@
 package com.epicodus.nightatthemovies.ui;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.epicodus.nightatthemovies.Constants;
 import com.epicodus.nightatthemovies.R;
 import com.net.codeusa.NetflixRoulette;
 
@@ -21,6 +24,8 @@ import okhttp3.OkHttpClient;
 public class RouletteActivity extends AppCompatActivity implements View.OnClickListener{
     NetflixRoulette roulette;
     OkHttpClient mClient;
+    SharedPreferences mPreferences;
+    SharedPreferences.Editor mEditor;
 
     @BindView(R.id.actorEditText) EditText mActorEntry;
     @BindView(R.id.genreEditText) EditText mGenreEntry;
@@ -35,6 +40,8 @@ public class RouletteActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         roulette = new NetflixRoulette();
+        mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mPreferences.edit();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roulette);
@@ -52,7 +59,18 @@ public class RouletteActivity extends AppCompatActivity implements View.OnClickL
             actorQuery = mActorEntry.getText().toString().trim();
             directorQuery = mDirectorEntry.getText().toString().trim();
             genreQuery = mGenreEntry.getText().toString().trim();
+            
+            addToSharedPreferences(Constants.NFROULETTE_ACTOR_QUERY_PARAMETER, actorQuery);
+            addToSharedPreferences(Constants.NFROULETTE_DIRECTOR_QUERY_PARAMETER, directorQuery);
+            addToSharedPreferences(Constants.NFROULETTE_GENRE_QUERY_PARAMETER, genreQuery);
+
+            Intent intent = new Intent(RouletteActivity.this, RouletteResultsListActivity.class);
+            startActivity(intent);
         }
         Toast.makeText(RouletteActivity.this, "You will be able to click this button to be given something random to watch.", Toast.LENGTH_LONG).show();
+    }
+
+    private void addToSharedPreferences(String key, String value) {
+        mEditor.putString(key, value).apply();
     }
 }
