@@ -13,7 +13,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:id="@+id/theaterImageView"
+            android:id="@+id/posterImageView"
             android:src="@drawable/placeholder"
             android:scaleType="centerCrop" />
 

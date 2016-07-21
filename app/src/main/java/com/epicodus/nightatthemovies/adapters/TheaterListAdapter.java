@@ -49,7 +49,7 @@ public class TheaterListAdapter extends RecyclerView.Adapter<TheaterListAdapter.
 
     public class TheaterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.theaterNameTextView) TextView mNameTextView;
-        @Bind(R.id.theaterImageView) ImageView mTheaterImageView;
+        @Bind(R.id.posterImageView) ImageView mTheaterImageView;
 
         private Context mContext;
 

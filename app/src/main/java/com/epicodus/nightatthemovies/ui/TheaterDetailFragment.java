@@ -2,9 +2,7 @@ package com.epicodus.nightatthemovies.ui;
 
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +20,7 @@ import butterknife.ButterKnife;
 
 public class TheaterDetailFragment extends Fragment {
     public static final String TAG = TheaterDetailFragment.class.getSimpleName();
-    @Bind(R.id.theaterImageView) ImageView mTheaterImageView;
+    @Bind(R.id.posterImageView) ImageView mTheaterImageView;
     @Bind(R.id.theaterNameTextView) TextView mTheaterNameView;
     @Bind(R.id.ratingTextView) TextView mRatingView;
     @Bind(R.id.websiteTextView) TextView mWebsiteView;
