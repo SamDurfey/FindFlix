@@ -20,7 +20,7 @@ import com.epicodus.nightatthemovies.services.GoogleService;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -33,8 +33,8 @@ public class TheaterListActivity extends AppCompatActivity {
     private SharedPreferences.Editor mEditor;
     private String mRecentLocation;
 
-    @Bind(R.id.theatersHeader) TextView mTheatersHeader;
-    @Bind(R.id.recyclerView) RecyclerView mTheaterListView;
+    @BindView(R.id.theatersHeader) TextView mTheatersHeader;
+    @BindView(R.id.recyclerView) RecyclerView mTheaterListView;
     private TheaterListAdapter mAdapter;
 
     public ArrayList<Theater> mTheaters = new ArrayList<>();

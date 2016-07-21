@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.epicodus.nightatthemovies.R;
 import com.net.codeusa.NetflixRoulette;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.OkHttpClient;
 
@@ -22,11 +22,11 @@ public class RouletteActivity extends AppCompatActivity implements View.OnClickL
     NetflixRoulette roulette;
     OkHttpClient mClient;
 
-    @Bind(R.id.actorEditText) EditText mActorEntry;
-    @Bind(R.id.genreEditText) EditText mGenreEntry;
-    @Bind(R.id.directorEditText) EditText mDirectorEntry;
-    @Bind(R.id.rouletteHeader) TextView mRouletteHeader;
-    @Bind(R.id.randomizeButton) Button mRandomizeButton;
+    @BindView(R.id.actorEditText) EditText mActorEntry;
+    @BindView(R.id.genreEditText) EditText mGenreEntry;
+    @BindView(R.id.directorEditText) EditText mDirectorEntry;
+    @BindView(R.id.rouletteHeader) TextView mRouletteHeader;
+    @BindView(R.id.randomizeButton) Button mRandomizeButton;
 
     public String actorQuery;
     public String genreQuery;

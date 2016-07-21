@@ -12,11 +12,11 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class TheaterDetailActivity extends AppCompatActivity {
-    @Bind(R.id.viewPager) ViewPager mViewPager;
+    @BindView(R.id.viewPager) ViewPager mViewPager;
     private TheaterPagerAdapter adapterViewPager;
     ArrayList<Theater> mTheaters = new ArrayList<>();
 

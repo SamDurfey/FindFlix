@@ -20,7 +20,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
@@ -32,10 +32,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     private ProgressDialog mAuthProgressDialog;
 
-    @Bind(R.id.emailEditText) EditText mEmailEntry;
-    @Bind(R.id.passwordEditText) EditText mPasswordEntry;
-    @Bind(R.id.loginButton) Button mLoginButton;
-    @Bind(R.id.newAccountLink) TextView mNewAccountLink;
+    @BindView(R.id.emailEditText) EditText mEmailEntry;
+    @BindView(R.id.passwordEditText) EditText mPasswordEntry;
+    @BindView(R.id.loginButton) Button mLoginButton;
+    @BindView(R.id.newAccountLink) TextView mNewAccountLink;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

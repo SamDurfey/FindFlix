@@ -19,7 +19,7 @@ import com.epicodus.nightatthemovies.Constants;
 import com.epicodus.nightatthemovies.R;
 import com.google.firebase.auth.FirebaseAuth;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -27,10 +27,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
 
-    @Bind(R.id.mainHeader) TextView mMainHeader;
-    @Bind(R.id.go2Random) Button mGoToRandomButton;
-    @Bind(R.id.go2Theaters) Button mGoToTheatersButton;
-    @Bind(R.id.locationEntryView) EditText mLocationEntryView;
+    @BindView(R.id.mainHeader) TextView mMainHeader;
+    @BindView(R.id.go2Random) Button mGoToRandomButton;
+    @BindView(R.id.go2Theaters) Button mGoToTheatersButton;
+    @BindView(R.id.locationEntryView) EditText mLocationEntryView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

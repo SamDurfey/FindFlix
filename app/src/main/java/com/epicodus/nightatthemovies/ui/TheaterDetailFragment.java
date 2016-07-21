@@ -15,16 +15,16 @@ import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class TheaterDetailFragment extends Fragment {
     public static final String TAG = TheaterDetailFragment.class.getSimpleName();
-    @Bind(R.id.posterImageView) ImageView mTheaterImageView;
-    @Bind(R.id.theaterNameTextView) TextView mTheaterNameView;
-    @Bind(R.id.ratingTextView) TextView mRatingView;
-    @Bind(R.id.websiteTextView) TextView mWebsiteView;
-    @Bind(R.id.phoneTextView) TextView mPhoneView;
+    @BindView(R.id.posterImageView) ImageView mTheaterImageView;
+    @BindView(R.id.theaterNameTextView) TextView mTheaterNameView;
+    @BindView(R.id.ratingTextView) TextView mRatingView;
+    @BindView(R.id.websiteTextView) TextView mWebsiteView;
+    @BindView(R.id.phoneTextView) TextView mPhoneView;
 
     private Theater mTheater;
 

@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class NewAccountActivity extends AppCompatActivity implements View.OnClickListener{
@@ -34,11 +34,11 @@ public class NewAccountActivity extends AppCompatActivity implements View.OnClic
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
-    @Bind(R.id.usernameEditText) EditText mUserNameEntry;
-    @Bind(R.id.emailEditText) EditText mEmailEntry;
-    @Bind(R.id.passwordEditText) EditText mPasswordEntry;
-    @Bind(R.id.confirmPasswordEditText) EditText mConfirmPasswordEntry;
-    @Bind(R.id.signUpButton) Button mSignUpButton;
+    @BindView(R.id.usernameEditText) EditText mUserNameEntry;
+    @BindView(R.id.emailEditText) EditText mEmailEntry;
+    @BindView(R.id.passwordEditText) EditText mPasswordEntry;
+    @BindView(R.id.confirmPasswordEditText) EditText mConfirmPasswordEntry;
+    @BindView(R.id.signUpButton) Button mSignUpButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
