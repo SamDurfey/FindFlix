@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Media {
+public class Show {
     private int unit;
     private String showID;
     private String showTitle;
@@ -18,7 +18,7 @@ public class Media {
     private int mediaType;
     private String runtime;
 
-    public Media(int unit, int id, String showTitle, String releaseYear, String rating, String category, String castString, String director, String summary, String posterURL, int mediaType, String runtime) {
+    public Show(int unit, int id, String showTitle, String releaseYear, String rating, String category, String castString, String director, String summary, String posterURL, int mediaType, String runtime) {
         this.unit = unit;
         this.showID = Integer.toString(id);
         this.showTitle = showTitle;

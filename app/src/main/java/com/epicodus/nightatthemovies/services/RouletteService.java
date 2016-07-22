@@ -3,7 +3,7 @@ package com.epicodus.nightatthemovies.services;
 //import com.net.codeusa.NetflixRoulette;
 
 import com.epicodus.nightatthemovies.Constants;
-import com.epicodus.nightatthemovies.models.Media;
+import com.epicodus.nightatthemovies.models.Show;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,9 +29,9 @@ public class RouletteService {
         if (actor != "") {
             urlBuilder.addQueryParameter(Constants.NFROULETTE_ACTOR_QUERY_PARAMETER, actor);
         }
-        if (genre != "") {
-            urlBuilder.addQueryParameter(Constants.NFROULETTE_GENRE_QUERY_PARAMETER, genre);
-        }
+//        if (genre != "") {
+//            urlBuilder.addQueryParameter(Constants.NFROULETTE_GENRE_QUERY_PARAMETER, genre);
+//        }
         if (director != "") {
             urlBuilder.addQueryParameter(Constants.NFROULETTE_DIRECTOR_QUERY_PARAMETER, director);
         }
@@ -46,8 +46,8 @@ public class RouletteService {
         call.enqueue(callback);
     }
 
-    public ArrayList<Media> processResponse(Response response) {
-        ArrayList<Media> shows = new ArrayList<>();
+    public ArrayList<Show> processResponse(Response response) {
+        ArrayList<Show> shows = new ArrayList<>();
 
         try {
             String jsonData = response.body().string();
@@ -68,7 +68,7 @@ public class RouletteService {
                 int mediaType = mediaJSON.getInt("mediatype");
                 String runtime = mediaJSON.getString("runtime");
 
-                Media show = new Media(unit, id, showTitle, releaseYear, rating, category, castString, director, summary, posterURL, mediaType, runtime);
+                Show show = new Show(unit, id, showTitle, releaseYear, rating, category, castString, director, summary, posterURL, mediaType, runtime);
                 shows.add(show);
             }
         } catch (IOException e) {

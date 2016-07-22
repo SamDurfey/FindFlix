@@ -18,7 +18,7 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class TheaterListAdapter extends RecyclerView.Adapter<TheaterListAdapter.TheaterViewHolder> {
@@ -48,8 +48,8 @@ public class TheaterListAdapter extends RecyclerView.Adapter<TheaterListAdapter.
     }
 
     public class TheaterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        @Bind(R.id.theaterNameTextView) TextView mNameTextView;
-        @Bind(R.id.posterImageView) ImageView mTheaterImageView;
+        @BindView(R.id.theaterNameTextView) TextView mNameTextView;
+        @BindView(R.id.posterImageView) ImageView mTheaterImageView;
 
         private Context mContext;
 

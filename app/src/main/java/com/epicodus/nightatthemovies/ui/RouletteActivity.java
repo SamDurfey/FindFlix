@@ -61,13 +61,13 @@ public class RouletteActivity extends AppCompatActivity implements View.OnClickL
             genreQuery = mGenreEntry.getText().toString().trim();
             
             addToSharedPreferences(Constants.NFROULETTE_ACTOR_QUERY_PARAMETER, actorQuery);
-            addToSharedPreferences(Constants.NFROULETTE_DIRECTOR_QUERY_PARAMETER, directorQuery);
+//            addToSharedPreferences(Constants.NFROULETTE_DIRECTOR_QUERY_PARAMETER, directorQuery);
+            // TODO: genre is crashing app. Why?
             addToSharedPreferences(Constants.NFROULETTE_GENRE_QUERY_PARAMETER, genreQuery);
 
             Intent intent = new Intent(RouletteActivity.this, RouletteResultsListActivity.class);
             startActivity(intent);
         }
-        Toast.makeText(RouletteActivity.this, "You will be able to click this button to be given something random to watch.", Toast.LENGTH_LONG).show();
     }
 
     private void addToSharedPreferences(String key, String value) {
