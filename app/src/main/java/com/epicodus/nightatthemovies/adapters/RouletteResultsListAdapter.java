@@ -1,6 +1,8 @@
 package com.epicodus.nightatthemovies.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.epicodus.nightatthemovies.Constants;
 import com.epicodus.nightatthemovies.R;
 import com.epicodus.nightatthemovies.models.Show;
 import com.squareup.picasso.Picasso;
@@ -64,10 +67,21 @@ public class RouletteResultsListAdapter extends RecyclerView.Adapter<RouletteRes
         @Override
         public void onClick(View view) {
 //            int itemPosition = getLayoutPosition();
+//            Intent linkIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.NFROULETTE_BASE_URL + mShows.get(itemPosition).getShowID()) );
+//            mContext.startActivity(linkIntent);
+
+
+
+
+            // Comment placeholder for detail fragment:
+
+//            int itemPosition = getLayoutPosition();
 //            Intent intent = new Intent(mContext, ShowDetailActivity.class);
 //            intent.putExtra("position", Integer.toString(itemPosition));
 //            intent.putExtra("shows", Parcels.wrap(mShows));
 //            mContext.startActivity(intent);
+
+            // TODO: implement either the show detail window or implicit intent to go to netflix page here.
         }
 
         public void bindShow(Show show) {

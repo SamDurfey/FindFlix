@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.epicodus.nightatthemovies.Constants;
@@ -44,8 +45,8 @@ public class RouletteResultsListActivity extends AppCompatActivity implements Vi
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         actorQuery = mSharedPreferences.getString(Constants.NFROULETTE_ACTOR_QUERY_PARAMETER, null);
-        genreQuery = mSharedPreferences.getString(Constants.NFROULETTE_GENRE_QUERY_PARAMETER, null);
-        directorQuery = mSharedPreferences.getString(Constants.NFROULETTE_DIRECTOR_QUERY_PARAMETER,null);
+//        genreQuery = mSharedPreferences.getString(Constants.NFROULETTE_GENRE_QUERY_PARAMETER, null);
+        directorQuery = mSharedPreferences.getString(Constants.NFROULETTE_DIRECTOR_QUERY_PARAMETER, null);
         getFlix();
 
     }
@@ -64,18 +65,22 @@ public class RouletteResultsListActivity extends AppCompatActivity implements Vi
 
                 if (response.isSuccessful()) {
                     mShows = rouletteService.processResponse(response);
+
+                    RouletteResultsListActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mResultsListAdapter = new RouletteResultsListAdapter(getApplicationContext(), mShows);
+                            mShowListView.setAdapter(mResultsListAdapter);
+                            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(RouletteResultsListActivity.this);
+                            mShowListView.setLayoutManager(layoutManager);
+                            mShowListView.setHasFixedSize(true);
+                        }
+                    });
+                } else {
+                    Log.d("Results: ", "oops");
                 }
 
-                RouletteResultsListActivity.this.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mResultsListAdapter = new RouletteResultsListAdapter(getApplicationContext(), mShows);
-                        mShowListView.setAdapter(mResultsListAdapter);
-                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(RouletteResultsListActivity.this);
-                        mShowListView.setLayoutManager(layoutManager);
-                        mShowListView.setHasFixedSize(true);
-                    }
-                });
+
             }
         });
 

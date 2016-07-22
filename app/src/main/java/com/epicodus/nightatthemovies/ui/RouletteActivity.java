@@ -28,7 +28,7 @@ public class RouletteActivity extends AppCompatActivity implements View.OnClickL
     SharedPreferences.Editor mEditor;
 
     @BindView(R.id.actorEditText) EditText mActorEntry;
-    @BindView(R.id.genreEditText) EditText mGenreEntry;
+//    @BindView(R.id.genreEditText) EditText mGenreEntry;
     @BindView(R.id.directorEditText) EditText mDirectorEntry;
     @BindView(R.id.rouletteHeader) TextView mRouletteHeader;
     @BindView(R.id.randomizeButton) Button mRandomizeButton;
@@ -58,12 +58,12 @@ public class RouletteActivity extends AppCompatActivity implements View.OnClickL
         if (view == mRandomizeButton) {
             actorQuery = mActorEntry.getText().toString().trim();
             directorQuery = mDirectorEntry.getText().toString().trim();
-            genreQuery = mGenreEntry.getText().toString().trim();
+//            genreQuery = mGenreEntry.getText().toString().trim();
             
             addToSharedPreferences(Constants.NFROULETTE_ACTOR_QUERY_PARAMETER, actorQuery);
-//            addToSharedPreferences(Constants.NFROULETTE_DIRECTOR_QUERY_PARAMETER, directorQuery);
+            addToSharedPreferences(Constants.NFROULETTE_DIRECTOR_QUERY_PARAMETER, directorQuery);
             // TODO: genre is crashing app. Why?
-            addToSharedPreferences(Constants.NFROULETTE_GENRE_QUERY_PARAMETER, genreQuery);
+//            addToSharedPreferences(Constants.NFROULETTE_GENRE_QUERY_PARAMETER, genreQuery);
 
             Intent intent = new Intent(RouletteActivity.this, RouletteResultsListActivity.class);
             startActivity(intent);
