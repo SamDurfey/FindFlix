@@ -137,6 +137,7 @@ public class NewAccountActivity extends AppCompatActivity implements View.OnClic
                 if (user != null) {
                     Intent intent = new Intent(NewAccountActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
                     finish();
                 }
             }
