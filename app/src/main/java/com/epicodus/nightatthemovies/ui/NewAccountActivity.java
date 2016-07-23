@@ -1,5 +1,6 @@
 package com.epicodus.nightatthemovies.ui;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
@@ -19,6 +20,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -27,12 +29,14 @@ import butterknife.ButterKnife;
 
 public class NewAccountActivity extends AppCompatActivity implements View.OnClickListener{
     private static final String TAG =  NewAccountActivity.class.getSimpleName() ;
+    private String mName;
     SharedPreferences mSharedPreferences;
     SharedPreferences.Editor mEditor;
     DatabaseReference ref;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
+    private ProgressDialog mAuthProgressDialog;
 
     @BindView(R.id.usernameEditText) EditText mUserNameEntry;
     @BindView(R.id.emailEditText) EditText mEmailEntry;
@@ -52,6 +56,14 @@ public class NewAccountActivity extends AppCompatActivity implements View.OnClic
 
         mAuth = FirebaseAuth.getInstance();
         createAuthStateListener();
+        createAuthProgressDialog();
+    }
+
+    private void createAuthProgressDialog() {
+        mAuthProgressDialog = new ProgressDialog(this);
+        mAuthProgressDialog.setTitle("Loading...");
+        mAuthProgressDialog.setMessage("Authenticating with Firebase...");
+        mAuthProgressDialog.setCancelable(false);
     }
 
     @Override
@@ -76,27 +88,47 @@ public class NewAccountActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void createNewUser() {
-        final String name = mUserNameEntry.getText().toString().trim();
+        mName = mUserNameEntry.getText().toString().trim();
         final String email = mEmailEntry.getText().toString().trim();
         final String password = mPasswordEntry.getText().toString().trim();
         String confirmPassword = mConfirmPasswordEntry.getText().toString().trim();
 
-        if (!isValidName(name) || !isValidEmail(email) || !isValidPassword(password, confirmPassword)) return;
+        if (!isValidName(mName) || !isValidEmail(email) || !isValidPassword(password, confirmPassword)) return;
+
+        mAuthProgressDialog.show();
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        mAuthProgressDialog.dismiss();
+
                         if (task.isSuccessful()) {
                             String uid = task.getResult().getUser().getUid();
-                            User newUser = new User(name, email, password, uid);
+                            User newUser = new User(mName, email, password, uid);
                             ref.child(uid).setValue(newUser);
                             Log.d(TAG, "Authentication successful.");
+                            makeFirebaseUserProfile(task.getResult().getUser());
                         } else {
                             Toast.makeText(NewAccountActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
         });
+    }
+
+    private void makeFirebaseUserProfile(final FirebaseUser user) {
+        UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
+                .setDisplayName(mName)
+                .build();
+        user.updateProfile(addProfileName)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, user.getDisplayName());
+                        }
+                    }
+                });
     }
 
     private boolean isValidEmail(String email) {
