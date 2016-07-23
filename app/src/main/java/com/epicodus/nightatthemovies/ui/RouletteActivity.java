@@ -62,7 +62,7 @@ public class RouletteActivity extends AppCompatActivity implements View.OnClickL
             
             addToSharedPreferences(Constants.NFROULETTE_ACTOR_QUERY_PARAMETER, actorQuery);
             addToSharedPreferences(Constants.NFROULETTE_DIRECTOR_QUERY_PARAMETER, directorQuery);
-            // TODO: genre is crashing app. Why?
+            // TODO: genre is crashing app. It's not genre; it's category.
 //            addToSharedPreferences(Constants.NFROULETTE_GENRE_QUERY_PARAMETER, genreQuery);
 
             Intent intent = new Intent(RouletteActivity.this, RouletteResultsListActivity.class);
