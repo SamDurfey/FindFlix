@@ -66,9 +66,10 @@ public class RouletteResultsListAdapter extends RecyclerView.Adapter<RouletteRes
 
         @Override
         public void onClick(View view) {
-//            int itemPosition = getLayoutPosition();
-//            Intent linkIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.NFROULETTE_BASE_URL + mShows.get(itemPosition).getShowID()) );
-//            mContext.startActivity(linkIntent);
+            int itemPosition = getLayoutPosition();
+            Intent linkIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.NETFLIX_MEDIA_BASE_URL + mShows.get(itemPosition).getShowID()));
+            mContext.startActivity(linkIntent);
+            // TODO: test this intent on your phone. The emulator won't load the show.
 
 
 

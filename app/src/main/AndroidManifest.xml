@@ -37,6 +37,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.RouletteResultsListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.RouletteActivity">
+            </meta-data>
         </activity>
     </application>
 
