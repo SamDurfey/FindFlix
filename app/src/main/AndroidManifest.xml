@@ -42,6 +42,8 @@
                 android:value=".ui.RouletteActivity">
             </meta-data>
         </activity>
+        <activity android:name=".ui.ShowDetailActivity">
+        </activity>
     </application>
 
 </manifest>

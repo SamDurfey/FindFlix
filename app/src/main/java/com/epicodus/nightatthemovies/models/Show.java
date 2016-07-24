@@ -1,9 +1,14 @@
 package com.epicodus.nightatthemovies.models;
 
+import com.epicodus.nightatthemovies.Constants;
+
+import org.parceler.Parcel;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Parcel
 public class Show {
     private int unit;
     private String showID;
@@ -17,10 +22,14 @@ public class Show {
     private String posterURL;
     private int mediaType;
     private String runtime;
+    private String nfMediaURL;
+
+    public Show() {}
 
     public Show(int unit, int id, String showTitle, String releaseYear, String rating, String category, String castString, String director, String summary, String posterURL, int mediaType, String runtime) {
         this.unit = unit;
         this.showID = Integer.toString(id);
+        this.nfMediaURL = Constants.NETFLIX_MEDIA_BASE_URL.concat(this.showID);
         this.showTitle = showTitle;
         this.releaseYear = releaseYear;
         this.rating = rating;
@@ -39,6 +48,10 @@ public class Show {
 
     public String getShowID() {
         return showID;
+    }
+
+    public String getNfMediaURL() {
+        return nfMediaURL;
     }
 
     public String getShowTitle() {

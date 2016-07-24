@@ -24,7 +24,7 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class RouletteResultsListActivity extends AppCompatActivity implements View.OnClickListener {
+public class RouletteResultsListActivity extends AppCompatActivity {
     SharedPreferences mSharedPreferences;
     SharedPreferences.Editor mEditor;
     String actorQuery;
@@ -87,8 +87,4 @@ public class RouletteResultsListActivity extends AppCompatActivity implements Vi
     }
 
 
-
-    @Override
-    public void onClick(View view) {
-    }
 }
