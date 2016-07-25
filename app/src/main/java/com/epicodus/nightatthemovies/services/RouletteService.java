@@ -2,6 +2,12 @@ package com.epicodus.nightatthemovies.services;
 
 //import com.net.codeusa.NetflixRoulette;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
+import android.util.Log;
+
 import com.epicodus.nightatthemovies.Constants;
 import com.epicodus.nightatthemovies.models.Show;
 
@@ -21,7 +27,10 @@ import okhttp3.Response;
 
 public class RouletteService {
 
-    public void findShows(String actor, String genre, String director, Callback callback) {
+    public void findShows(String actor, String genre, String director, Context context, Callback callback) {
+
+        SharedPreferences mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor mEditor = mSharedPreferences.edit();
 
         OkHttpClient mClient = new OkHttpClient();
 
@@ -71,16 +80,13 @@ public class RouletteService {
                 Show show = new Show(unit, id, showTitle, releaseYear, rating, category, castString, director, summary, posterURL, mediaType, runtime);
                 shows.add(show);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
+        } catch (IOException | JSONException e) {
             e.printStackTrace();
         }
 
         return shows;
 
     }
-
 
 
 //    private NetflixRoulette mRoulette;

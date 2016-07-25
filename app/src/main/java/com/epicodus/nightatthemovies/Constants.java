@@ -8,10 +8,7 @@ public class Constants {
     public static final String NFROULETTE_DIRECTOR_QUERY_PARAMETER = "director";
     public static final String NETFLIX_MEDIA_BASE_URL = "https://www.netflix.com/title/";
 
-
-
-
-
+    public static String RECENT_QUERY = "";
 
     // Google crap. ech.wav
     public static final String GOOGLE_PLACES_API_KEY = BuildConfig.GOOGLE_PLACES_API_KEY;
@@ -26,5 +23,6 @@ public class Constants {
     public static final String PREFERENCES_LOCATION_KEY = "location";
 
     public static final String FIREBASE_CHILD_USER = "user";
+    public static final String FIREBASE_CHILD_SHOWS = "shows";
 
 }
