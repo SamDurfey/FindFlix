@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
-        android:id="@+id/action_logout"
-        android:title="Logout"
-        android:visible="true"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_save_list"
-        android:title="Save These Results"
+        android:id="@+id/action_save"
+        android:title="Save Result"
         android:visible="true"
         app:showAsAction="withText"/>
 </menu>

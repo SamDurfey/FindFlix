@@ -16,7 +16,7 @@ public class Show {
     private String releaseYear;
     private String rating;
     private String category;
-    private String[] showCast;
+    private String showCast;
     private String director;
     private String summary;
     private String posterURL;
@@ -34,7 +34,8 @@ public class Show {
         this.releaseYear = releaseYear;
         this.rating = rating;
         this.category = category;
-        this.showCast = castString.split("\\s*,\\s*"); //should split given string into an ArrayList
+//        this.showCast = castString.split("\\s*,\\s*"); //should split given string into an ArrayList
+        this.showCast = castString;
         this.director = director;
         this.summary = summary;
         this.posterURL = posterURL;
@@ -70,7 +71,7 @@ public class Show {
         return category;
     }
 
-    public String[] getShowCast() {
+    public String getShowCast() {
         return showCast;
     }
 

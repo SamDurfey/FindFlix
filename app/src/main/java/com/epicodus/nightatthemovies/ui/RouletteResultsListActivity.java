@@ -12,8 +12,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
 import com.epicodus.nightatthemovies.Constants;
 import com.epicodus.nightatthemovies.R;
@@ -21,16 +19,9 @@ import com.epicodus.nightatthemovies.adapters.RouletteResultsListAdapter;
 import com.epicodus.nightatthemovies.models.Show;
 import com.epicodus.nightatthemovies.services.RouletteService;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -111,29 +102,22 @@ public class RouletteResultsListActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_results_list, menu);
+        inflater.inflate(R.menu.menu_result, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_logout) {
-            logout();
-            return true;
-        }
-        if (id == R.id.action_save_list) {
-            Log.d("Recent query: ", mSharedPreferences.getString(Constants.RECENT_QUERY, null));
+
+        if (id == R.id.action_save) {
+//            DatabaseReference showListsRef = FirebaseDatabase.getInstance()
+//                    .getReference(Constants.FIREBASE_CHILD_SHOWS);
+//            showListsRef.push().setValue((List<Show>)mShows);
+//            Toast.makeText(mContext, "Saved", Toast.LENGTH_SHORT).show();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void logout() {
-        FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(RouletteResultsListActivity.this, LoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        finish();
-    }
 }

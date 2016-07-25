@@ -20,7 +20,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
+            android:background="#f0f0f0"
             android:paddingTop="20dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
@@ -97,4 +97,16 @@ Leverage agile frameworks to provide a robust synopsis for high level overviews.
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save This Show"
+        android:id="@+id/saveShowButton"
+        android:layout_gravity="left|bottom"
+        android:background="#f0f0f0"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_margin="10dp"/>
 </FrameLayout>
