@@ -1,6 +1,5 @@
 package com.epicodus.nightatthemovies.services;
 
-//import com.net.codeusa.NetflixRoulette;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -87,35 +86,6 @@ public class RouletteService {
         return shows;
 
     }
-
-
-//    private NetflixRoulette mRoulette;
-//    private String mActors;
-//    private String mDirector;
-//    private String mGenre;
-//
-//    public RouletteService(String actors, String director, String genre) {
-//        mRoulette = new NetflixRoulette();
-//        mActors = actors;
-//        mDirector = director;
-//        mGenre = genre;
-//    }
-//
-//    public NetflixRoulette getRoulette() {
-//        return mRoulette;
-//    }
-//
-//    public String getActors() {
-//        return mActors;
-//    }
-//
-//    public String getDirector() {
-//        return mDirector;
-//    }
-//
-//    public String getGenre() {
-//        return mGenre;
-//    }
 
 
 }

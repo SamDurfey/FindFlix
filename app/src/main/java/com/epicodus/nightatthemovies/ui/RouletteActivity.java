@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import com.epicodus.nightatthemovies.Constants;
 import com.epicodus.nightatthemovies.R;
-import com.net.codeusa.NetflixRoulette;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,7 +21,6 @@ import okhttp3.OkHttpClient;
 
 
 public class RouletteActivity extends AppCompatActivity implements View.OnClickListener{
-    NetflixRoulette roulette;
     OkHttpClient mClient;
     SharedPreferences mPreferences;
     SharedPreferences.Editor mEditor;
@@ -39,7 +37,6 @@ public class RouletteActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        roulette = new NetflixRoulette();
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mEditor = mPreferences.edit();
 
