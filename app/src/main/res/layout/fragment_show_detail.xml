@@ -37,16 +37,16 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold" />
 
-            <TextView
+            <RatingBar
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.5/5"
-                android:id="@+id/ratingTextView"
-                android:layout_alignTop="@+id/showNameTextView"
+                android:id="@+id/ratingBar"
+                android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:textColor="@color/colorAccent"
-                android:textStyle="bold" />
+                android:stepSize=".25"
+                android:numStars="5"/>
+
 
         </RelativeLayout>
 
@@ -83,16 +83,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Summary:
-Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
-
-Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring."
+Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment."
                     android:id="@+id/summaryTextView"
                     android:drawablePadding="4dp"
                     android:textColor="@color/colorTextIcons"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="10dp"
-                    android:gravity="left"/>
+                    android:gravity="start"/>
+
 
 
             </LinearLayout>

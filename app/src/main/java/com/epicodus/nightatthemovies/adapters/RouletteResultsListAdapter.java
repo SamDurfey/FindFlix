@@ -93,7 +93,8 @@ public class RouletteResultsListAdapter extends RecyclerView.Adapter<RouletteRes
                     .resize(MAX_WIDTH, MAX_HEIGHT)
                     .into(mShowImageView);
             mNameTextView.setText(show.getShowTitle());
-            mRatingTextView.setText(show.getRating().toString() + "/5");
+            String rating = show.getRating().concat("/5");
+            mRatingTextView.setText(rating);
 
         }
     }

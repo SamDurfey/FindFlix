@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.epicodus.nightatthemovies.Constants;
@@ -24,7 +25,7 @@ import butterknife.ButterKnife;
 public class ShowDetailFragment extends Fragment implements View.OnClickListener{
     @BindView(R.id.posterImageView) ImageView mPosterImageView;
     @BindView(R.id.showNameTextView) TextView mShowNameTextView;
-    @BindView(R.id.ratingTextView) TextView mRatingTextView;
+    @BindView(R.id.ratingBar) RatingBar mRatingBar;
     @BindView(R.id.summaryTextView) TextView mSummaryTextView;
     @BindView(R.id.nfLinkTextView) TextView mLinkTextView;
 
@@ -53,6 +54,8 @@ public class ShowDetailFragment extends Fragment implements View.OnClickListener
 
         mShowNameTextView.setText(mShow.getShowTitle());
         mSummaryTextView.setText(mShow.getSummary());
+
+        mRatingBar.setRating(Float.parseFloat(mShow.getRating()));
 
         mLinkTextView.setOnClickListener(this);
 
