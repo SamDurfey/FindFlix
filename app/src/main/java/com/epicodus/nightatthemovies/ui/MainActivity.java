@@ -29,13 +29,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
-    private SharedPreferences mSharedPreferences;
-    private SharedPreferences.Editor mEditor;
-
     @BindView(R.id.mainHeader) TextView mMainHeader;
     @BindView(R.id.go2Random) Button mGoToRandomButton;
-    @BindView(R.id.go2Theaters) Button mGoToTheatersButton;
-    @BindView(R.id.locationEntryView) EditText mLocationEntryView;
+    @BindView(R.id.savedShowsButton) Button mSavedShowsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,14 +50,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         };
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mEditor = mSharedPreferences.edit();
-
         Typeface limelightFont = Typeface.createFromAsset(getAssets(), "fonts/Limelight.ttf");
         mMainHeader.setTypeface(limelightFont);
 
         mGoToRandomButton.setOnClickListener(this);
-        mGoToTheatersButton.setOnClickListener(this);
+        mSavedShowsButton.setOnClickListener(this);
 
     }
 
@@ -110,21 +103,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, RouletteActivity.class);
             startActivity(intent);
         }
-        if (view == mGoToTheatersButton) {
-            String inputtedLocation = mLocationEntryView.getText().toString();
-
-            if (inputtedLocation.length() == 0) {
-                Toast.makeText(MainActivity.this, "Please enter a location to search for nearby theaters.", Toast.LENGTH_LONG).show();
-            } else {
-                addToSharedPreferences(Constants.PREFERENCES_LOCATION_KEY, inputtedLocation);
-                Intent intent = new Intent(MainActivity.this, TheaterListActivity.class);
-                startActivity(intent);
-            }
+        if (view == mSavedShowsButton) {
+            Intent intent = new Intent(MainActivity.this, SavedShowsListActivity.class);
+            startActivity(intent);
         }
-    }
-
-    private void addToSharedPreferences(String key, String value) {
-        mEditor.putString(key, value).apply();
     }
 
 }

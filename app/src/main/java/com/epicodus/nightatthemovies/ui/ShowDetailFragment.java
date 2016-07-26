@@ -1,19 +1,14 @@
 package com.epicodus.nightatthemovies.ui;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,8 +28,8 @@ import butterknife.ButterKnife;
 
 public class ShowDetailFragment extends Fragment implements View.OnClickListener{
     @BindView(R.id.posterImageView) ImageView mPosterImageView;
-    @BindView(R.id.showNameTextView) TextView mShowNameTextView;
-    @BindView(R.id.ratingBar) RatingBar mRatingBar;
+    @BindView(R.id.showTitleTextView) TextView mShowNameTextView;
+    @BindView(R.id.ratingTextView) TextView mRatingTextView;
     @BindView(R.id.summaryTextView) TextView mSummaryTextView;
     @BindView(R.id.nfLinkTextView) TextView mLinkTextView;
     @BindView(R.id.saveShowButton) Button mSaveShowButton;
@@ -67,7 +62,7 @@ public class ShowDetailFragment extends Fragment implements View.OnClickListener
         mShowNameTextView.setText(mShow.getShowTitle());
         mSummaryTextView.setText(mShow.getSummary());
 
-        mRatingBar.setRating(Float.parseFloat(mShow.getRating()));
+        mRatingTextView.setText(mShow.getRating().concat("/5"));
 
         mLinkTextView.setOnClickListener(this);
         mSaveShowButton.setOnClickListener(this);
@@ -85,7 +80,7 @@ public class ShowDetailFragment extends Fragment implements View.OnClickListener
         }
         if (view == mSaveShowButton) {
             DatabaseReference savedShowRef = FirebaseDatabase.getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_USER).child(mUser.getUid()).child("shows");
+                    .getReference(Constants.FIREBASE_CHILD_USER).child(mUser.getUid()).child(Constants.FIREBASE_CHILD_SHOWS);
             savedShowRef.push().setValue(mShow);
             Toast.makeText(getContext(), "Show Saved", Toast.LENGTH_SHORT).show();
         }

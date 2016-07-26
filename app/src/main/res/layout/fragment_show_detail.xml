@@ -30,22 +30,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Media Title"
-                android:id="@+id/showNameTextView"
+                android:id="@+id/showTitleTextView"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:textSize="20sp"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold" />
 
-            <RatingBar
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/ratingBar"
-                android:layout_centerVertical="true"
+                android:text="4.5/5"
+                android:id="@+id/ratingTextView"
+                android:layout_alignTop="@+id/showTitleTextView"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:stepSize=".25"
-                android:numStars="5"/>
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold" />
 
 
         </RelativeLayout>
