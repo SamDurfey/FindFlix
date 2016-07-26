@@ -40,16 +40,6 @@
         android:gravity="center_horizontal"
         android:layout_marginTop="20dp"/>
 
-    <!--<EditText-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/genreEditText"-->
-        <!--android:hint="Genre"-->
-        <!--android:layout_below="@+id/actorEditText"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:gravity="center_horizontal"-->
-        <!--android:layout_marginTop="20dp"/>-->
-
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

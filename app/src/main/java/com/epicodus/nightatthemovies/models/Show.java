@@ -15,7 +15,6 @@ public class Show {
     private String showTitle;
     private String releaseYear;
     private String rating;
-    private String category;
     private String showCast;
     private String director;
     private String summary;
@@ -26,15 +25,13 @@ public class Show {
 
     public Show() {}
 
-    public Show(int unit, int id, String showTitle, String releaseYear, String rating, String category, String castString, String director, String summary, String posterURL, int mediaType, String runtime) {
+    public Show(int unit, int id, String showTitle, String releaseYear, String rating, String castString, String director, String summary, String posterURL, int mediaType, String runtime) {
         this.unit = unit;
         this.showID = Integer.toString(id);
         this.nfMediaURL = Constants.NETFLIX_MEDIA_BASE_URL.concat(this.showID);
         this.showTitle = showTitle;
         this.releaseYear = releaseYear;
         this.rating = rating;
-        this.category = category;
-//        this.showCast = castString.split("\\s*,\\s*"); //should split given string into an ArrayList
         this.showCast = castString;
         this.director = director;
         this.summary = summary;
@@ -65,10 +62,6 @@ public class Show {
 
     public String getRating() {
         return rating;
-    }
-
-    public String getCategory() {
-        return category;
     }
 
     public String getShowCast() {

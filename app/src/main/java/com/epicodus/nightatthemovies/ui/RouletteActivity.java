@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.epicodus.nightatthemovies.Constants;
 import com.epicodus.nightatthemovies.R;
@@ -26,13 +25,11 @@ public class RouletteActivity extends AppCompatActivity implements View.OnClickL
     SharedPreferences.Editor mEditor;
 
     @BindView(R.id.actorEditText) EditText mActorEntry;
-//    @BindView(R.id.genreEditText) EditText mGenreEntry;
     @BindView(R.id.directorEditText) EditText mDirectorEntry;
     @BindView(R.id.rouletteHeader) TextView mRouletteHeader;
     @BindView(R.id.randomizeButton) Button mRandomizeButton;
 
     public String actorQuery;
-    public String genreQuery;
     public String directorQuery;
 
     @Override
@@ -55,12 +52,9 @@ public class RouletteActivity extends AppCompatActivity implements View.OnClickL
         if (view == mRandomizeButton) {
             actorQuery = mActorEntry.getText().toString().trim();
             directorQuery = mDirectorEntry.getText().toString().trim();
-//            genreQuery = mGenreEntry.getText().toString().trim();
-            
+
             addToSharedPreferences(Constants.NFROULETTE_ACTOR_QUERY_PARAMETER, actorQuery);
             addToSharedPreferences(Constants.NFROULETTE_DIRECTOR_QUERY_PARAMETER, directorQuery);
-            // TODO: change genre to category and this all may work.
-//            addToSharedPreferences(Constants.NFROULETTE_GENRE_QUERY_PARAMETER, genreQuery);
 
             Intent intent = new Intent(RouletteActivity.this, RouletteResultsListActivity.class);
             startActivity(intent);

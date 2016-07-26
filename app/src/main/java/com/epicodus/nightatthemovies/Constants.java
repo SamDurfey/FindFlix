@@ -4,7 +4,6 @@ public class Constants {
 
     public static final String NFROULETTE_BASE_URL = "http://netflixroulette.net/api/api.php?";
     public static final String NFROULETTE_ACTOR_QUERY_PARAMETER = "actor";
-    public static final String NFROULETTE_GENRE_QUERY_PARAMETER = "genre";
     public static final String NFROULETTE_DIRECTOR_QUERY_PARAMETER = "director";
     public static final String NETFLIX_MEDIA_BASE_URL = "https://www.netflix.com/title/";
 
