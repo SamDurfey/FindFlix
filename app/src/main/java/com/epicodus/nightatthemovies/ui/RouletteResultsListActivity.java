@@ -38,7 +38,7 @@ public class RouletteResultsListActivity extends AppCompatActivity {
 
     public ArrayList<Show> mShows;
 
-    @BindView(R.id.listView) RecyclerView mShowListView;
+    @BindView(R.id.recyclerView) RecyclerView mShowListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +46,11 @@ public class RouletteResultsListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_roulette_results_list);
         ButterKnife.bind(this);
         mContext = getApplicationContext();
-//        mListView.setOnClickListener(this);
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         actorQuery = mSharedPreferences.getString(Constants.NFROULETTE_ACTOR_QUERY_PARAMETER, null);
         directorQuery = mSharedPreferences.getString(Constants.NFROULETTE_DIRECTOR_QUERY_PARAMETER, null);
         getFlix();
-
     }
 
     private void getFlix() {

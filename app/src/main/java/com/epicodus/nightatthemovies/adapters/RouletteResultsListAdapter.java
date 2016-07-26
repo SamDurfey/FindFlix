@@ -2,7 +2,6 @@ package com.epicodus.nightatthemovies.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.epicodus.nightatthemovies.Constants;
 import com.epicodus.nightatthemovies.R;
 import com.epicodus.nightatthemovies.models.Show;
 import com.epicodus.nightatthemovies.ui.ShowDetailActivity;
@@ -26,8 +24,8 @@ import butterknife.ButterKnife;
 public class RouletteResultsListAdapter extends RecyclerView.Adapter<RouletteResultsListAdapter.ShowViewHolder> {
     private ArrayList<Show> mShows = new ArrayList<>();
     private Context mContext;
-    private static final int MAX_WIDTH = 100;
-    private static final int MAX_HEIGHT = 100;
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 200;
 
     public RouletteResultsListAdapter(Context context, ArrayList<Show> shows) {
         mContext = context;
@@ -52,8 +50,9 @@ public class RouletteResultsListAdapter extends RecyclerView.Adapter<RouletteRes
     }
 
     public class ShowViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        @BindView(R.id.showNameTextView) TextView mNameTextView;
+        @BindView(R.id.showTitleTextView) TextView mNameTextView;
         @BindView(R.id.posterImageView) ImageView mShowImageView;
+        @BindView(R.id.categoryTextView) TextView mCategoryTextView;
         @BindView(R.id.ratingTextView) TextView mRatingTextView;
 
         private Context mContext;
@@ -94,7 +93,9 @@ public class RouletteResultsListAdapter extends RecyclerView.Adapter<RouletteRes
                     .into(mShowImageView);
             mNameTextView.setText(show.getShowTitle());
             String rating = show.getRating().concat("/5");
+            String category = "Category: " + show.getCategory();
             mRatingTextView.setText(rating);
+            mCategoryTextView.setText(category);
 
         }
     }

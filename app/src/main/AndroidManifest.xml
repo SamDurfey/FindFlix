@@ -44,6 +44,8 @@
         </activity>
         <activity android:name=".ui.ShowDetailActivity">
         </activity>
+        <activity android:name=".ui.SavedShowsListActivity">
+        </activity>
     </application>
 
 </manifest>

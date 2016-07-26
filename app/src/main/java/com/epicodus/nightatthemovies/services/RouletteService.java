@@ -66,13 +66,14 @@ public class RouletteService {
                 String releaseYear = mediaJSON.getString("release_year");
                 String rating = mediaJSON.getString("rating");
                 String castString = mediaJSON.getString("show_cast");
+                String category = mediaJSON.getString("category");
                 String director = mediaJSON.getString("director");
                 String summary = mediaJSON.getString("summary");
                 String posterURL = mediaJSON.getString("poster");
                 int mediaType = mediaJSON.getInt("mediatype");
                 String runtime = mediaJSON.getString("runtime");
 
-                Show show = new Show(unit, id, showTitle, releaseYear, rating, castString, director, summary, posterURL, mediaType, runtime);
+                Show show = new Show(unit, id, showTitle, releaseYear, rating, castString, category, director, summary, posterURL, mediaType, runtime);
                 shows.add(show);
             }
         } catch (IOException | JSONException e) {

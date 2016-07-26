@@ -21,7 +21,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/showNameTextView"
+            android:id="@+id/showTitleTextView"
             android:textSize="20dp"
             android:textStyle="bold"
             android:text="Show/Movie Name"
@@ -34,8 +34,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Genre"
-                android:id="@+id/genreTextView"
+                android:text="Category: "
+                android:id="@+id/categoryTextView"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"/>
