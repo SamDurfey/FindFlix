@@ -19,14 +19,6 @@
                 android:value="com.epicodus.findflix.ui.MainActivity">
             </meta-data>
         </activity>
-        <activity android:name="com.epicodus.findflix.ui.TheaterListActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.findflix.ui.MainActivity">
-            </meta-data>
-        </activity>
-        <activity android:name="com.epicodus.findflix.ui.TheaterDetailActivity">
-        </activity>
         <activity android:name="com.epicodus.findflix.ui.NewAccountActivity">
         </activity>
         <activity android:name="com.epicodus.findflix.ui.LoginActivity">
