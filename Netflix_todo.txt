@@ -1,0 +1,13 @@
+What do I want to be able to do with this app?
+
+As a user, I would like to be able to ...
+
+SAVE A SHOW! :
+
+Press "save" on a show detail to store that show onto firebase for later viewing.
+Press "save" on a list of results to save that list onto firebase for later viewing.
+
+SPIN THE WHEEL! :
+
+Press "random show" to play roulette with those values. 
+	This could most likely be easily done, by generating the list and instantly going to the appropriate page.

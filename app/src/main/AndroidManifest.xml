@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.epicodus.nightatthemovies">
+          package="com.epicodus.findflix">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
@@ -11,40 +11,40 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity">
+        <activity android:name="com.epicodus.findflix.ui.MainActivity">
         </activity>
-        <activity android:name=".ui.RouletteActivity">
+        <activity android:name="com.epicodus.findflix.ui.RouletteActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity">
+                android:value="com.epicodus.findflix.ui.MainActivity">
             </meta-data>
         </activity>
-        <activity android:name=".ui.TheaterListActivity">
+        <activity android:name="com.epicodus.findflix.ui.TheaterListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.MainActivity">
+                android:value="com.epicodus.findflix.ui.MainActivity">
             </meta-data>
         </activity>
-        <activity android:name=".ui.TheaterDetailActivity">
+        <activity android:name="com.epicodus.findflix.ui.TheaterDetailActivity">
         </activity>
-        <activity android:name=".ui.NewAccountActivity">
+        <activity android:name="com.epicodus.findflix.ui.NewAccountActivity">
         </activity>
-        <activity android:name=".ui.LoginActivity">
+        <activity android:name="com.epicodus.findflix.ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.RouletteResultsListActivity">
+        <activity android:name="com.epicodus.findflix.ui.RouletteResultsListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.RouletteActivity">
+                android:value="com.epicodus.findflix.ui.RouletteActivity">
             </meta-data>
         </activity>
-        <activity android:name=".ui.ShowDetailActivity">
+        <activity android:name="com.epicodus.findflix.ui.ShowDetailActivity">
         </activity>
-        <activity android:name=".ui.SavedShowsListActivity">
+        <activity android:name="com.epicodus.findflix.ui.SavedShowsListActivity">
         </activity>
     </application>
 
