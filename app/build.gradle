@@ -11,7 +11,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.epicodus.nightatthemovies"
+        applicationId "com.epicodus.findflix"
         minSdkVersion 15
         targetSdkVersion 24
         versionCode 1
