@@ -69,9 +69,6 @@ public class ShowDetailFragment extends Fragment implements View.OnClickListener
         return view;
     }
 
-
-
-
     @Override
     public void onClick(View view) {
         if (view == mLinkTextView) {

@@ -37,7 +37,6 @@ public class SavedShowViewHolder extends RecyclerView.ViewHolder implements View
         mView = itemView;
         mContext = itemView.getContext();
         itemView.setOnClickListener(this);
-
     }
 
     public void bindShow(Show show) {

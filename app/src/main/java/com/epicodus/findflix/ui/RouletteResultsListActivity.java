@@ -80,31 +80,7 @@ public class RouletteResultsListActivity extends AppCompatActivity {
                 } else {
                     Log.d("Results: ", "oops");
                 }
-
             }
         });
-
     }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.menu_result, menu);
-//        return super.onCreateOptionsMenu(menu);
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        int id = item.getItemId();
-//
-//        if (id == R.id.action_save) {
-////            DatabaseReference showListsRef = FirebaseDatabase.getInstance()
-////                    .getReference(Constants.FIREBASE_CHILD_SHOWS);
-////            showListsRef.push().setValue((List<Show>)mShows);
-////            Toast.makeText(mContext, "Saved", Toast.LENGTH_SHORT).show();
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
-
 }

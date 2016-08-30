@@ -91,8 +91,6 @@ public class RouletteActivity extends AppCompatActivity implements View.OnClickL
                 }
             });
 
-
-
         }
         if (view == mAllResultsButton) {
             actorQuery = mActorEntry.getText().toString().trim();
