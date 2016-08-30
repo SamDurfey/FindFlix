@@ -1,8 +1,8 @@
 package com.epicodus.findflix.ui;
 
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 import com.epicodus.findflix.R;
 import com.epicodus.findflix.adapters.ShowPagerAdapter;
@@ -27,10 +27,11 @@ public class ShowDetailActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mShows = Parcels.unwrap(getIntent().getParcelableExtra("shows"));
-        int startingPosition = Integer.parseInt(getIntent().getStringExtra("position"));
+        int startingPosition = getIntent().hasExtra("position") ? Integer.parseInt(getIntent().getStringExtra("position")) : 0;
 
         adapterPager = new ShowPagerAdapter(getSupportFragmentManager(), mShows);
         mViewPager.setAdapter(adapterPager);
         mViewPager.setCurrentItem(startingPosition);
+
     }
 }

@@ -2,15 +2,12 @@ package com.epicodus.findflix.ui;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 
 import com.epicodus.findflix.Constants;
 import com.epicodus.findflix.R;
@@ -84,33 +81,30 @@ public class RouletteResultsListActivity extends AppCompatActivity {
                     Log.d("Results: ", "oops");
                 }
 
-
-
-
             }
         });
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_result, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_save) {
-//            DatabaseReference showListsRef = FirebaseDatabase.getInstance()
-//                    .getReference(Constants.FIREBASE_CHILD_SHOWS);
-//            showListsRef.push().setValue((List<Show>)mShows);
-//            Toast.makeText(mContext, "Saved", Toast.LENGTH_SHORT).show();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.menu_result, menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        int id = item.getItemId();
+//
+//        if (id == R.id.action_save) {
+////            DatabaseReference showListsRef = FirebaseDatabase.getInstance()
+////                    .getReference(Constants.FIREBASE_CHILD_SHOWS);
+////            showListsRef.push().setValue((List<Show>)mShows);
+////            Toast.makeText(mContext, "Saved", Toast.LENGTH_SHORT).show();
+//            return true;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 
 }

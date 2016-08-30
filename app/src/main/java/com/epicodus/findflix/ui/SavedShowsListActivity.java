@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.epicodus.findflix.Constants;
 import com.epicodus.findflix.R;
-import com.epicodus.findflix.adapters.FirebaseShowViewHolder;
+import com.epicodus.findflix.adapters.SavedShowViewHolder;
 import com.epicodus.findflix.models.Show;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -41,11 +41,11 @@ public class SavedShowsListActivity extends AppCompatActivity {
     }
 
     private void setUpFirebaseAdapter() {
-        mFirebaseAdapter = new FirebaseRecyclerAdapter<Show, FirebaseShowViewHolder>
-                (Show.class, R.layout.show_list_item, FirebaseShowViewHolder.class, mShowReference) {
+        mFirebaseAdapter = new FirebaseRecyclerAdapter<Show, SavedShowViewHolder>
+                (Show.class, R.layout.show_list_item, SavedShowViewHolder.class, mShowReference) {
 
             @Override
-            protected void populateViewHolder(FirebaseShowViewHolder viewHolder, Show model, int position) {
+            protected void populateViewHolder(SavedShowViewHolder viewHolder, Show model, int position) {
                 viewHolder.bindShow(model);
             }
         };

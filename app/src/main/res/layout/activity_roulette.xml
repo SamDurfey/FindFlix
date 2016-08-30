@@ -25,10 +25,11 @@
         android:layout_height="wrap_content"
         android:text="Give me a Random Movie!"
         android:id="@+id/randomizeButton"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:background="@color/colorPrimary"
-        android:textColor="@color/colorPrimaryText" />
+        android:textColor="@color/colorPrimaryText"
+        android:layout_above="@+id/allResultsButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -49,5 +50,15 @@
         android:layout_below="@+id/actorEditText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show All Results"
+        android:id="@+id/allResultsButton"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryText"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

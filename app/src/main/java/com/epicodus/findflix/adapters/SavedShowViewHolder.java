@@ -24,7 +24,7 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-public class FirebaseShowViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class SavedShowViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
 
@@ -32,7 +32,7 @@ public class FirebaseShowViewHolder extends RecyclerView.ViewHolder implements V
     Context mContext;
     FirebaseUser currentUser;
 
-    public FirebaseShowViewHolder(View itemView) {
+    public SavedShowViewHolder(View itemView) {
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();

@@ -71,9 +71,6 @@ public class RouletteResultsListAdapter extends RecyclerView.Adapter<RouletteRes
             intent.putExtra("position", Integer.toString(itemPosition));
             intent.putExtra("shows", Parcels.wrap(mShows));
             mContext.startActivity(intent);
-            // TODO: test this intent on your phone. The emulator won't load the show.
-
-
 
 
             // Comment placeholder for detail fragment:
