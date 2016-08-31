@@ -73,6 +73,7 @@ public class SavedShowViewHolder extends RecyclerView.ViewHolder implements View
                 Intent intent = new Intent(mContext, ShowDetailActivity.class);
                 intent.putExtra("position", itemPosition + "");
                 intent.putExtra("shows", Parcels.wrap(shows));
+                intent.putExtra("source", "saved");
 
                 mContext.startActivity(intent);
             }

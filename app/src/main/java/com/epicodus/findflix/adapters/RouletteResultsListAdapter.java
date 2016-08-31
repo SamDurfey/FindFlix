@@ -70,6 +70,7 @@ public class RouletteResultsListAdapter extends RecyclerView.Adapter<RouletteRes
             Intent intent = new Intent(mContext, ShowDetailActivity.class );
             intent.putExtra("position", Integer.toString(itemPosition));
             intent.putExtra("shows", Parcels.wrap(mShows));
+            intent.putExtra("source", "search");
             mContext.startActivity(intent);
         }
 

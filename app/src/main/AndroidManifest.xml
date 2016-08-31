@@ -11,32 +11,39 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.epicodus.findflix.ui.MainActivity">
+        <activity android:name="com.epicodus.findflix.ui.MainActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name="com.epicodus.findflix.ui.RouletteActivity">
+        <activity android:name="com.epicodus.findflix.ui.RouletteActivity"
+                  android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.findflix.ui.MainActivity">
             </meta-data>
         </activity>
-        <activity android:name="com.epicodus.findflix.ui.NewAccountActivity">
+        <activity android:name="com.epicodus.findflix.ui.NewAccountActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name="com.epicodus.findflix.ui.LoginActivity">
+        <activity android:name="com.epicodus.findflix.ui.LoginActivity"
+                  android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.epicodus.findflix.ui.RouletteResultsListActivity">
+        <activity android:name="com.epicodus.findflix.ui.RouletteResultsListActivity"
+                  android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.findflix.ui.RouletteActivity">
             </meta-data>
         </activity>
-        <activity android:name="com.epicodus.findflix.ui.ShowDetailActivity">
+        <activity android:name="com.epicodus.findflix.ui.ShowDetailActivity"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name="com.epicodus.findflix.ui.SavedShowsListActivity">
+        <activity android:name="com.epicodus.findflix.ui.SavedShowsListActivity"
+                  android:screenOrientation="portrait">
         </activity>
     </application>
 

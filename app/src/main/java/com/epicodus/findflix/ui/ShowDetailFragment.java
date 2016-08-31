@@ -36,6 +36,7 @@ public class ShowDetailFragment extends Fragment implements View.OnClickListener
 
     private Show mShow;
     FirebaseUser mUser;
+    String mSource;
 
     public static ShowDetailFragment newInstance(Show show) {
         ShowDetailFragment showDetailFragment = new ShowDetailFragment();
@@ -50,6 +51,7 @@ public class ShowDetailFragment extends Fragment implements View.OnClickListener
         super.onCreate(savedInstanceState);
         mShow = Parcels.unwrap(getArguments().getParcelable("show"));
         mUser = FirebaseAuth.getInstance().getCurrentUser();
+        mSource = super.getActivity().getIntent().getStringExtra("source");
     }
 
     @Override
@@ -63,6 +65,9 @@ public class ShowDetailFragment extends Fragment implements View.OnClickListener
         mSummaryTextView.setText(mShow.getSummary());
 
         mRatingTextView.setText(mShow.getRating().concat("/5"));
+        if (mSource.equals("saved")) {
+            mSaveShowButton.setText(getResources().getString(R.string.remove_button));
+        }
 
         mLinkTextView.setOnClickListener(this);
         mSaveShowButton.setOnClickListener(this);

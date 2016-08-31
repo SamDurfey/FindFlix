@@ -85,6 +85,7 @@ public class RouletteActivity extends AppCompatActivity implements View.OnClickL
                         mRandomlySelectedShow.add(mShows.get(random.nextInt(mShows.size() + 1)));
 
                         intent.putExtra("shows", Parcels.wrap(mRandomlySelectedShow));
+                        intent.putExtra("source", "roulette");
 
                         startActivity(intent);
                     }
