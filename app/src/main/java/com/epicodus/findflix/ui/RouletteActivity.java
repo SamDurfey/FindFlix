@@ -38,12 +38,18 @@ public class RouletteActivity extends AppCompatActivity implements View.OnClickL
 
     @BindView(R.id.actorEditText) EditText mActorEntry;
     @BindView(R.id.directorEditText) EditText mDirectorEntry;
+//    @BindView(R.id.yearEditText) EditText mYearEntry;
+//    @BindView(R.id.titleEditText) EditText mTitleEntry;
+
     @BindView(R.id.rouletteHeader) TextView mRouletteHeader;
     @BindView(R.id.randomizeButton) Button mRandomizeButton;
     @BindView(R.id.allResultsButton) Button mAllResultsButton;
 
+
     public String actorQuery;
     public String directorQuery;
+    public String yearQuery;
+    public String titleQuery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +73,8 @@ public class RouletteActivity extends AppCompatActivity implements View.OnClickL
         if (view == mRandomizeButton) {
             actorQuery = mActorEntry.getText().toString().trim();
             directorQuery = mDirectorEntry.getText().toString().trim();
+//            yearQuery = mYearEntry.getText().toString().trim();
+//            titleQuery = mTitleEntry.getText().toString().trim();
 
             final RouletteService rouletteService = new RouletteService();
             rouletteService.findShows(actorQuery, directorQuery, getApplicationContext(), new Callback() {
@@ -96,9 +104,13 @@ public class RouletteActivity extends AppCompatActivity implements View.OnClickL
         if (view == mAllResultsButton) {
             actorQuery = mActorEntry.getText().toString().trim();
             directorQuery = mDirectorEntry.getText().toString().trim();
+//            yearQuery = mYearEntry.getText().toString().trim();
+//            titleQuery = mTitleEntry.getText().toString().trim();
 
             addToSharedPreferences(Constants.NFROULETTE_ACTOR_QUERY_PARAMETER, actorQuery);
             addToSharedPreferences(Constants.NFROULETTE_DIRECTOR_QUERY_PARAMETER, directorQuery);
+//            addToSharedPreferences(Constants.NFROULETTE_YEAR_QUERY_PARAMETER, yearQuery);
+//            addToSharedPreferences(Constants.NFROULETTE_TITLE_QUERY_PARAMETER, titleQuery);
 
             Intent intent = new Intent(RouletteActivity.this, RouletteResultsListActivity.class);
             startActivity(intent);

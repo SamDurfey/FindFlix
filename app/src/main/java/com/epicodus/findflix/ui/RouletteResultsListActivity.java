@@ -30,6 +30,9 @@ public class RouletteResultsListActivity extends AppCompatActivity {
     SharedPreferences.Editor mEditor;
     String actorQuery;
     String directorQuery;
+//    String yearQuery;
+//    String titleQuery;
+
     Response recentResponse;
     private RouletteResultsListAdapter mResultsListAdapter;
 
@@ -47,6 +50,8 @@ public class RouletteResultsListActivity extends AppCompatActivity {
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         actorQuery = mSharedPreferences.getString(Constants.NFROULETTE_ACTOR_QUERY_PARAMETER, null);
         directorQuery = mSharedPreferences.getString(Constants.NFROULETTE_DIRECTOR_QUERY_PARAMETER, null);
+//        yearQuery = mSharedPreferences.getString(Constants.NFROULETTE_YEAR_QUERY_PARAMETER, null);
+//        titleQuery = mSharedPreferences.getString(Constants.NFROULETTE_TITLE_QUERY_PARAMETER, null);
         getFlix();
     }
 
@@ -79,6 +84,7 @@ public class RouletteResultsListActivity extends AppCompatActivity {
                     });
                 } else {
                     Log.d("Results: ", "oops");
+                    Log.d("Results: ", response.body().toString());
                 }
             }
         });

@@ -4,6 +4,7 @@ package com.epicodus.findflix.services;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import com.epicodus.findflix.Constants;
 import com.epicodus.findflix.models.Show;
@@ -32,14 +33,21 @@ public class RouletteService {
         OkHttpClient mClient = new OkHttpClient();
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.NFROULETTE_BASE_URL).newBuilder();
-        if (actor != "") {
+        if (!actor.equals("")) {
             urlBuilder.addQueryParameter(Constants.NFROULETTE_ACTOR_QUERY_PARAMETER, actor);
         }
-        if (director != "") {
+        if (!director.equals("")) {
             urlBuilder.addQueryParameter(Constants.NFROULETTE_DIRECTOR_QUERY_PARAMETER, director);
         }
+//        if (!year.equals("")) {
+//            urlBuilder.addQueryParameter(Constants.NFROULETTE_YEAR_QUERY_PARAMETER, year);
+//        }
+//        if (!title.equals("")) {
+//            urlBuilder.addQueryParameter(Constants.NFROULETTE_TITLE_QUERY_PARAMETER, title);
+//        }
 
         String url = urlBuilder.build().toString();
+        Log.d("Built URL: ", url);
 
         Request request = new Request.Builder()
                 .url(url)

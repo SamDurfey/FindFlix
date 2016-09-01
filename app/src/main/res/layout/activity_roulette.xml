@@ -61,4 +61,26 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
 
+    <!--<EditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/yearEditText"-->
+        <!--android:gravity="center_horizontal"-->
+        <!--android:layout_below="@+id/directorEditText"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:inputType="number"/>-->
+
+    <!--<EditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/titleEditText"-->
+        <!--android:hint="Title"-->
+        <!--android:gravity="center_horizontal"-->
+        <!--android:layout_below="@+id/yearEditText"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="20dp"/>-->
+    <!--android:hint="Year"-->
+
 </RelativeLayout>
