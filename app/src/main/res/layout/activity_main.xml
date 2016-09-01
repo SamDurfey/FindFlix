@@ -27,7 +27,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Play Movie Roulette!"
+        android:text="Search For a Movie"
         android:id="@+id/go2Random"
         android:layout_alignWithParentIfMissing="false"
         android:layout_gravity="center|left"
