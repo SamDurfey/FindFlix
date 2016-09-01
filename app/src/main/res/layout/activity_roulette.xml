@@ -13,33 +13,26 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Let&apos;s Play Netflix Roulette!"
+        android:text="Search Netflix:"
         android:id="@+id/rouletteHeader"
         android:textSize="30dp"
+        android:textColor="@color/colorTextIcons"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/colorTextIcons" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Give me a Random Movie!"
-        android:id="@+id/randomizeButton"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/colorPrimaryText"
-        android:layout_above="@+id/allResultsButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"/>
+        android:layout_above="@+id/actorEditText"
+        android:gravity="center_vertical"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/actorEditText"
-        android:layout_below="@+id/rouletteHeader"
+        android:layout_above="@+id/directorEditText"
         android:layout_centerHorizontal="true"
         android:hint="@string/actor"
         android:gravity="center_horizontal"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:singleLine="true"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -47,19 +40,12 @@
         android:id="@+id/directorEditText"
         android:hint="@string/director"
         android:gravity="center_horizontal"
-        android:layout_below="@+id/actorEditText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Show All Results"
-        android:id="@+id/allResultsButton"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/colorPrimaryText"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:singleLine="true"/>
 
     <!--<EditText-->
         <!--android:layout_width="match_parent"-->
@@ -80,7 +66,31 @@
         android:hint="@string/title"
         android:gravity="center_horizontal"
         android:layout_below="@+id/directorEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:singleLine="true"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Give me a Random Movie!"
+        android:id="@+id/randomizeButton"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryText"
+        android:layout_above="@+id/allResultsButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show All Results"
+        android:id="@+id/allResultsButton"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryText"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

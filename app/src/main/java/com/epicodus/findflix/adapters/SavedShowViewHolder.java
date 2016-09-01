@@ -25,8 +25,8 @@ import org.parceler.Parcels;
 import java.util.ArrayList;
 
 public class SavedShowViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-    private static final int MAX_WIDTH = 200;
-    private static final int MAX_HEIGHT = 200;
+    private static final int MAX_WIDTH = 80;
+    private static final int MAX_HEIGHT = 100;
 
     View mView;
     Context mContext;

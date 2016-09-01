@@ -24,8 +24,8 @@ import butterknife.ButterKnife;
 public class RouletteResultsListAdapter extends RecyclerView.Adapter<RouletteResultsListAdapter.ShowViewHolder> {
     private ArrayList<Show> mShows = new ArrayList<>();
     private Context mContext;
-    private static final int MAX_WIDTH = 200;
-    private static final int MAX_HEIGHT = 200;
+    private static final int MAX_WIDTH = 80;
+    private static final int MAX_HEIGHT = 100;
 
     public RouletteResultsListAdapter(Context context, ArrayList<Show> shows) {
         mContext = context;

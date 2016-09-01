@@ -47,6 +47,10 @@ public class ShowDetailFragment extends Fragment implements View.OnClickListener
     private Show mShow;
     FirebaseUser mUser;
     String mSource;
+    int mImageHeight;
+    int mImageWidth;
+    private final int MAX_WIDTH = 800;
+    private final int MAX_HEIGHT = 200;
 
     public static ShowDetailFragment newInstance(Show show) {
         ShowDetailFragment showDetailFragment = new ShowDetailFragment();
@@ -69,7 +73,11 @@ public class ShowDetailFragment extends Fragment implements View.OnClickListener
         View view = inflater.inflate(R.layout.fragment_show_detail, container, false);
         ButterKnife.bind(this, view);
 
-        Picasso.with(view.getContext()).load(mShow.getPosterURL()).into(mPosterImageView);
+        Picasso.with(view.getContext())
+                .load(mShow.getPosterURL())
+                .fit()
+                .centerCrop()
+                .into(mPosterImageView);
 
         mShowNameTextView.setText(mShow.getShowTitle());
         mSummaryTextView.setText(mShow.getSummary());
