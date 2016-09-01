@@ -3,7 +3,9 @@ package com.epicodus.findflix.ui;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,13 +17,21 @@ import android.widget.Toast;
 import com.epicodus.findflix.Constants;
 import com.epicodus.findflix.R;
 import com.epicodus.findflix.models.Show;
+import com.google.android.gms.common.api.Result;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.Transaction;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
+
+import java.util.concurrent.Executor;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -79,11 +89,18 @@ public class ShowDetailFragment extends Fragment implements View.OnClickListener
         if (view == mLinkTextView) {
             Intent linkIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mShow.getNfMediaURL()));
             startActivity(linkIntent);
-        }
-        if (view == mSaveShowButton) {
+        } else if (view == mSaveShowButton && mSource.equals("saved")) {
+            DatabaseReference savedShowRef = FirebaseDatabase.getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_USER).child(mUser.getUid())
+                    .child(Constants.FIREBASE_CHILD_SHOWS);
+            savedShowRef.child(mShow.getShowID()).removeValue();
+            getActivity().finish();
+
+        } else if (view == mSaveShowButton && !mSource.equals("saved")) {
             DatabaseReference savedShowRef = FirebaseDatabase.getInstance()
                     .getReference(Constants.FIREBASE_CHILD_USER).child(mUser.getUid()).child(Constants.FIREBASE_CHILD_SHOWS);
-            savedShowRef.push().setValue(mShow);
+            savedShowRef.child(mShow.getShowID()).setValue(mShow);
+
             Toast.makeText(getContext(), "Show Saved", Toast.LENGTH_SHORT).show();
         }
     }
