@@ -90,7 +90,7 @@ public class RouletteActivity extends AppCompatActivity implements View.OnClickL
                         Random random = new Random();
                         mShows = rouletteService.processResponse(response);
                         ArrayList<Show> mRandomlySelectedShow = new ArrayList<>();
-                        mRandomlySelectedShow.add(mShows.get(random.nextInt(mShows.size() + 1)));
+                        mRandomlySelectedShow.add(mShows.get(random.nextInt(mShows.size())));
 
                         intent.putExtra("shows", Parcels.wrap(mRandomlySelectedShow));
                         intent.putExtra("source", "roulette");
