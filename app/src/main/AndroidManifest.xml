@@ -44,6 +44,10 @@
         </activity>
         <activity android:name="com.epicodus.findflix.ui.SavedShowsListActivity"
                   android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.findflix.ui.MainActivity">
+            </meta-data>
         </activity>
     </application>
 
