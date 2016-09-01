@@ -37,7 +37,7 @@
         android:id="@+id/actorEditText"
         android:layout_below="@+id/rouletteHeader"
         android:layout_centerHorizontal="true"
-        android:hint="Actor"
+        android:hint="@string/actor"
         android:gravity="center_horizontal"
         android:layout_marginTop="20dp"/>
 
@@ -45,7 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/directorEditText"
-        android:hint="Director"
+        android:hint="@string/director"
         android:gravity="center_horizontal"
         android:layout_below="@+id/actorEditText"
         android:layout_centerHorizontal="true"
@@ -65,6 +65,7 @@
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->
         <!--android:id="@+id/yearEditText"-->
+        <!--android:hint="@string/year"-->
         <!--android:gravity="center_horizontal"-->
         <!--android:layout_below="@+id/directorEditText"-->
         <!--android:layout_alignParentRight="true"-->
@@ -72,15 +73,14 @@
         <!--android:layout_marginTop="20dp"-->
         <!--android:inputType="number"/>-->
 
-    <!--<EditText-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/titleEditText"-->
-        <!--android:hint="Title"-->
-        <!--android:gravity="center_horizontal"-->
-        <!--android:layout_below="@+id/yearEditText"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_marginTop="20dp"/>-->
-    <!--android:hint="Year"-->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleEditText"
+        android:hint="@string/title"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/directorEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
 
 </RelativeLayout>

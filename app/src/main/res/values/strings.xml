@@ -2,4 +2,8 @@
     <string name="app_name">FindFlix</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="remove_button">Remove Show</string>
+    <string name="actor">Actor</string>
+    <string name="director">Director</string>
+    <string name="year">Year</string>
+    <string name="title">Title</string>
 </resources>

@@ -25,7 +25,7 @@ import okhttp3.Response;
 
 public class RouletteService {
 
-    public void findShows(String actor, String director, Context context, Callback callback) {
+    public void findShows(String actor, String director, String title, Context context, Callback callback) {
 
         SharedPreferences mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor mEditor = mSharedPreferences.edit();
@@ -42,9 +42,9 @@ public class RouletteService {
 //        if (!year.equals("")) {
 //            urlBuilder.addQueryParameter(Constants.NFROULETTE_YEAR_QUERY_PARAMETER, year);
 //        }
-//        if (!title.equals("")) {
-//            urlBuilder.addQueryParameter(Constants.NFROULETTE_TITLE_QUERY_PARAMETER, title);
-//        }
+        if (!title.equals("")) {
+            urlBuilder.addQueryParameter(Constants.NFROULETTE_TITLE_QUERY_PARAMETER, title);
+        }
 
         String url = urlBuilder.build().toString();
         Log.d("Built URL: ", url);
@@ -62,6 +62,9 @@ public class RouletteService {
 
         try {
             String jsonData = response.body().string();
+            if (jsonData.startsWith("{")) {
+                jsonData = "[" + jsonData + "]";
+            }
             JSONArray nfJSON = new JSONArray(jsonData);
             for (int i = 0; i < nfJSON.length(); i++) {
                 JSONObject mediaJSON = nfJSON.getJSONObject(i);

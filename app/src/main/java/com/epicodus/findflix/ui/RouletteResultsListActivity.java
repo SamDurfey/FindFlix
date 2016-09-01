@@ -31,7 +31,7 @@ public class RouletteResultsListActivity extends AppCompatActivity {
     String actorQuery;
     String directorQuery;
 //    String yearQuery;
-//    String titleQuery;
+    String titleQuery;
 
     Response recentResponse;
     private RouletteResultsListAdapter mResultsListAdapter;
@@ -51,13 +51,13 @@ public class RouletteResultsListActivity extends AppCompatActivity {
         actorQuery = mSharedPreferences.getString(Constants.NFROULETTE_ACTOR_QUERY_PARAMETER, null);
         directorQuery = mSharedPreferences.getString(Constants.NFROULETTE_DIRECTOR_QUERY_PARAMETER, null);
 //        yearQuery = mSharedPreferences.getString(Constants.NFROULETTE_YEAR_QUERY_PARAMETER, null);
-//        titleQuery = mSharedPreferences.getString(Constants.NFROULETTE_TITLE_QUERY_PARAMETER, null);
+        titleQuery = mSharedPreferences.getString(Constants.NFROULETTE_TITLE_QUERY_PARAMETER, null);
         getFlix();
     }
 
     private void getFlix() {
         final RouletteService rouletteService = new RouletteService();
-        rouletteService.findShows(actorQuery, directorQuery, mContext ,new  Callback() {
+        rouletteService.findShows(actorQuery, directorQuery, titleQuery, mContext ,new  Callback() {
 
             @Override
             public void onFailure(Call call, IOException e) {
